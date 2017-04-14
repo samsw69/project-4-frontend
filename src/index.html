@@ -1,13 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="artsy">
   <head>
     <meta charset="utf-8">
-    <title>Angular Stack Setup</title>
+    <title>Artsy</title>
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
   </head>
-  <body>
-  </body>
+  <body ng-controller="LoginCtrl as login">
+    <h1>Register</h1>
+    <form ng-submit="login.register()">
+
+  <div>
+    <label>Name</label>
+    <input type="text" ng-model="login.user.name">
+  </div>
+
+  <div>
+    <label>Username</label>
+    <input type="text" ng-model="login.user.username">
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="text" ng-model="login.user.email">
+  </div>
+
+  <div>
+    <label>About Me</label>
+    <input type="text" ng-model="login.user.about">
+  </div>
+
+  <div>
+    <label>Profile Picture</label>
+    <input type="text" ng-model="login.user.image">
+  </div>
+
+  <div>
+    <label>Password</label>
+    <input type="password" ng-model="login.user.password">
+  </div>
+
+  <div>
+    <label>Password Confirmation</label>
+    <input type="password" ng-model="login.user.password_confirmation">
+  </div>
+
+  <button>Register</button>
+</form>
+
+
+<h1>Login</h1>
+<form ng-submit="login.login()">
+
+<div>
+  <label>Email</label>
+  <input type="text" ng-model="login.credentials.email">
+</div>
+
+<div>
+  <label>Password</label>
+  <input type="password" ng-model="login.credentials.password">
+</div>
+
+<button>login</button>
+
+</form>
+
+<button ng-click="login.authenticate('github')">Login with Github</button>
+</body>
 </html>
