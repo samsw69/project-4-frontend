@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="auth.register()">
+      <div>
+        <label>Name</label>
+        <input type="text" ng-model="login.user.name">
+        </div>
+
+        <div>
+        <label>Username</label>
+        <input type="text" ng-model="login.user.username">
+        </div>
+
+        <div>
+        <label>Email</label>
+        <input type="text" ng-model="login.user.email">
+        </div>
+
+        <div>
+        <label>About Me</label>
+        <input type="text" ng-model="login.user.about">
+        </div>
+
+        <div>
+        <label>Profile Picture</label>
+        <input type="text" ng-model="login.user.image">
+        </div>
+
+        <div>
+        <label>Password</label>
+        <input type="password" ng-model="login.user.password">
+        </div>
+
+        <div>
+        <label>Password Confirmation</label>
+        <input type="password" ng-model="login.user.password_confirmation">
+        </div>
+
+        <button>Register</button>
+    </form>
+  </div>
+</div>

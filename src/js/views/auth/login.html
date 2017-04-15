@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<h1>Login</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="auth.login()">
+      <div>
+        <label>Email</label>
+        <input type="text" ng-model="auth.credentials.email">
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="password" ng-model="auth.credentials.password">
+      </div>
+
+      <button>login</button>
+
+    </form>
+  </div>
+</div>
+
+<button ng-click="login.authenticate('github')">Login with Github</button>
