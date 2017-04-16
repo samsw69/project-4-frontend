@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="eventsNew.create()">
+
+      <label for="image">Event picture</label>
+      <input type="text" id="image" name="image" ng-model="eventsNew.event.image">
+
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" ng-model="eventsNew.event.title">
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" ng-model="eventsNew.event.location">
+
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" ng-model="eventsNew.event.date">
+
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description" ng-model="eventsNew.event.description">
+
+      <label>Attendees</label>
+      <label ng-repeat="user in eventsNew.users">
+        <input type="checkbox" name="attendees" checklist-model="eventsNew.event.attendee_ids" checklist-value="user.id">{{ user.username }}
+      </label>
+
+      <button>Create</button>
+    </form>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 angular
 .module('artsy')
+
 .controller('EventsIndexCtrl', EventsIndexCtrl)
 .controller('EventsNewCtrl', EventsNewCtrl)
 .controller('EventsShowCtrl', EventsShowCtrl)
