@@ -9,5 +9,7 @@
       <h4>{{ productsShow.product.price }}</h4>
       <p>Created by: <strong>{{ productsShow.product.user.username }}</strong></p>
     </div>
+    <button ui-sref="productsEdit({id: productsShow.product.id})" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Edit</button>
+    <button ng-click="productsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Delete</button>
   </div>
 </div>

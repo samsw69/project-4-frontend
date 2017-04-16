@@ -2,8 +2,8 @@ angular
 .module('artsy')
 .controller('ProductsIndexCtrl', ProductsIndexCtrl)
 .controller('ProductsNewCtrl', ProductsNewCtrl)
-.controller('ProductsShowCtrl', ProductsShowCtrl);
-// .controller('ProductsEditCtrl', ProductsEditCtrl);
+.controller('ProductsShowCtrl', ProductsShowCtrl)
+.controller('ProductsEditCtrl', ProductsEditCtrl);
 
 ProductsIndexCtrl.$inject = ['Product'];
 function ProductsIndexCtrl(Product) {
@@ -15,7 +15,7 @@ function ProductsIndexCtrl(Product) {
 ProductsNewCtrl.$inject = ['User', 'Product', '$state'];
 function ProductsNewCtrl(User, Product, $state) {
   const vm = this;
-  vm.event = {};
+  vm.product = {};
   vm.users = User.query();
 
   function productsCreate() {
@@ -44,13 +44,8 @@ function ProductsShowCtrl(Product, User, $stateParams, $state, $auth) {
 
   vm.delete = productsDelete;
 
-  // function productsUpdate() {
-  //   Product
-  //     .update({id: vm.product.id, product: vm.product });
-  // }
-
-  ProductsEditCtrl.$inject = ['Product', 'User', '$stateParams'];
-  function ProductsEditCtrl(Product, User, $stateParams) {
+  ProductsEditCtrl.$inject = ['Product', 'User', '$stateParams', '$state'];
+  function ProductsEditCtrl(Product, User, $stateParams, $state) {
     const vm = this;
 
     Product.get($stateParams).$promise.then((product) => {
@@ -58,5 +53,14 @@ function ProductsShowCtrl(Product, User, $stateParams, $state, $auth) {
     });
 
     vm.users = User.query();
+
+    function productsUpdate() {
+      Product
+        .update({id: vm.product.id, product: vm.product })
+        .$promise
+        .then(() => $state.go('productsShow', { id: vm.product.id }));
+    }
+
+    vm.update = productsUpdate;
   }
 }
