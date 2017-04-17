@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<h1>Johnny 5 is alive in products/index</h1>
+<h1>Local and home-made Artwork</h1>
 
 <ul class="row">
   <li ng-repeat="product in productsIndex.all" class="col-md-6">
     <div class="product">
-      <h3>{{ product.title }}</h3>
-      <p>{{ product.description }}</p>
-      <p>"£"{{ product.price }}</p>
+      <h2>{{ product.title }}</h2>
+      <h3>{{ product.description }}</h3>
+      <h2>£{{ product.price }}</h2>
       <img ng-src="{{ product.image }}">
       <button ui-sref="productsShow({id: product.id})">View</button>
     </div>

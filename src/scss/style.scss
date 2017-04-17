@@ -8,9 +8,9 @@ body {
   font-family: 'Quicksand', sans-serif;
   line-height: 1.4;
   &:not(.home) {
-    main {
-      @extend .container;
-    }
+    // main {
+    //   @extend .container;
+    // }
     header {
       position: static;
       nav {
@@ -53,6 +53,9 @@ h4 {
   font-size: 14px;
 }
 
+ul {
+  list-style: none;
+}
 header {
   position: absolute;
   top: 0;
@@ -60,8 +63,7 @@ header {
   right: 0;
   margin-bottom: 10px;
   nav {
-    @extend
-    .container;
+    // @extend.container;
     height: 60px;
     ul {
       li {
@@ -108,12 +110,12 @@ header {
 //   margin-bottom: 20px;
 // }
 //
-// .hero {
-//   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/party-dog.jpg');
-//   background-size: cover;
-//   background-position: center;
-//   height: 100vh;
-// }
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 //
 // .attendees {
 //   @extend .border;
@@ -172,43 +174,89 @@ header {
 //   }
 // }
 //
-// form {
-//   label {
-//     display: block;
-//     margin-bottom: 10px;
-//     font-weight: 500;
-//     text-transform: uppercase;
-//     letter-spacing: 2px;
-//     font-size: 12px;
-//   }
-//   input, textarea {
-//     margin-bottom: 20px;
-//     width: 100%;
-//     border: 1px solid $brand-secondary;
-//     padding: 5px 10px;
-//     font-size: 14px;
-//     &:focus {
-//       outline: none !important;
-//       border-width: 2px;
-//       padding: 4px 9px;
-//     }
-//   }
-//   input[type="checkbox"] {
-//     width: auto;
-//   }
-//   textarea {
-//     resize: none;
-//     margin-bottom: 5px;
-//     padding: 10px;
-//     margin-top: 5px;
-//     height: 100px;
-//     &:focus {
-//       padding: 9px;
-//     }
-//   }
+form {
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+  input, textarea {
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #f56700;
+    padding: 5px 10px;
+    font-size: 14px;
+    &:focus {
+      outline: none !important;
+      border-width: 2px;
+      padding: 4px 9px;
+    }
+  }
+  input[type="checkbox"] {
+    width: auto;
+  }
+  textarea {
+    resize: none;
+    margin-bottom: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    height: 100px;
+    &:focus {
+      padding: 9px;
+    }
+  }
 //   button {
 //     @extend .button;
 //     @extend .button--blue;
 //     width: 100%;
 //   }
-// }
+}
+
+.product {
+  margin: 30px auto 0;
+  text-align: center;
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  h3 {
+    text-align: center;
+    font-size: 16px;
+  }
+  img {
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 2px;
+  }
+  a {
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+    color: black;
+    }
+  }
+  .button {
+    // text-align: center;
+  }
+  // ul {
+  //   display: block;
+  //   list-style: none;
+  //   margin: 20px auto;
+  //   position: relative;
+  // }
+  // li {
+  //   list-style: none;
+  //   display: inline-block;
+  //   margin: 0 15px;
+  //   margin-left: 0;
+    // img {
+    //   height: 150px;
+    //   border: 2px solid black;
+    //   border-radius: 2px;
+    // }
+  // }
+}
