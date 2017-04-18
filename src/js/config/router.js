@@ -11,15 +11,9 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/',
     templateUrl: 'js/views/static/home.html'
   })
-  // .state('profile', {
-  //   url: '/profile',
-  //   templateUrl: 'js/views/profile.html',
-  //   controller: 'ProfileCtrl as profile'
-  // })
-
-  .state('user', {
-    url: '/user',
-    templateUrl: 'js/views/user.html',
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: 'js/views/users/index.html',
     controller: 'UsersIndexCtrl as user'
   })
   .state('usersShow', {

@@ -44,10 +44,10 @@ function EventsShowCtrl(Event, User, Comment, $stateParams, $state, $auth) {
 
   vm.delete = eventsDelete;
 
-  function eventsUpdate() {
-    Event
-      .update({id: vm.event.id, event: vm.event });
-  }
+  // function eventsUpdate() {
+  //   Event
+  //     .update({id: vm.event.id, event: vm.event });
+  // }
 
   function addComment() {
     vm.comment.event_id = vm.event.id;

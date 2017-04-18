@@ -23,7 +23,10 @@ function AuthCtrl($auth, $state) {
   function authenticate(provider) {
     $auth.authenticate(provider)
       // .then(() => $state.go('profile'));
-      .then(() => $state.go('user'));
+      .then((user) => {
+        console.log(user);
+        $state.go('usersShow', {id: user.data.user.id });
+      });
   }
 
   vm.authenticate = authenticate;

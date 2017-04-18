@@ -30,7 +30,7 @@ function UsersIndexCtrl(User) {
 //
 // }
 
-UsersShowCtrl.$inject = ['User', 'User', '$stateParams'];
+UsersShowCtrl.$inject = ['User', '$stateParams'];
 function UsersShowCtrl(User, $stateParams) {
   const vm = this;
 
@@ -42,7 +42,7 @@ function UsersShowCtrl(User, $stateParams) {
     });
 }
 
-UsersEditCtrl.$inject = ['User', 'User', '$stateParams'];
+UsersEditCtrl.$inject = ['User', '$stateParams'];
 function UsersEditCtrl(User, $stateParams) {
   const vm = this;
 

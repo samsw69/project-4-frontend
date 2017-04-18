@@ -51,7 +51,6 @@ function ProductsEditCtrl(Product, User, $stateParams, $state) {
 
   Product.get($stateParams).$promise.then((product) => {
     vm.product = product;
-    vm.product.date = new Date(product.date);
   });
 
   vm.users = User.query();
@@ -60,7 +59,7 @@ function ProductsEditCtrl(Product, User, $stateParams, $state) {
     Product
       .update({id: vm.product.id, product: vm.product })
       .$promise
-      .then(() => $state.go('productsShow', { id: vm.product.id }, $stateParams));
+      .then(() => $state.go('productsShow', $stateParams, { id: vm.product.id }));
   }
 
   vm.update = productsUpdate;

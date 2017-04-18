@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+
+
+<img ng-src="{{ users.image }}" alt="users.username">
+<h2>{{ users.username }}</h2>
+<p>{{ users.about }}</p>
+<a href="mailto:{{ users.email }}" ng-if="users.email">{{ user.email }}</a>
+<!-- <p>Github Id: <strong>{{ user.githubId }}</strong></p> -->
+
+<button ng-click="user.logout()">Logout</button>
