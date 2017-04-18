@@ -60,7 +60,7 @@ function ProductsEditCtrl(Product, User, $stateParams, $state) {
     Product
       .update({id: vm.product.id, product: vm.product })
       .$promise
-      .then(() => $state.go('productsShow', { id: vm.product.id }));
+      .then(() => $state.go('productsShow', { id: vm.product.id }, $stateParams));
   }
 
   vm.update = productsUpdate;

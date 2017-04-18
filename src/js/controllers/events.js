@@ -110,7 +110,8 @@ function EventsEditCtrl(Event, User, $stateParams, $state) {
     Event
       .update({id: vm.event.id, event: vm.event })
       .$promise
-      .then(() => $state.go('eventsShow', { id: vm.event.id }));
+      // remove $stateparams if caused issues - see last LN
+      .then(() => $state.go('eventsShow', $stateParams, { id: vm.event.id }));
   }
 
   vm.update = eventsUpdate;

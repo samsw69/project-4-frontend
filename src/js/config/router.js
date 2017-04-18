@@ -11,10 +11,26 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/',
     templateUrl: 'js/views/static/home.html'
   })
-  .state('profile', {
-    url: '/profile',
-    templateUrl: 'js/views/profile.html',
-    controller: 'ProfileCtrl as profile'
+  // .state('profile', {
+  //   url: '/profile',
+  //   templateUrl: 'js/views/profile.html',
+  //   controller: 'ProfileCtrl as profile'
+  // })
+
+  .state('user', {
+    url: '/user',
+    templateUrl: 'js/views/user.html',
+    controller: 'UsersIndexCtrl as user'
+  })
+  .state('usersShow', {
+    url: '/users/:id',
+    templateUrl: 'js/views/users/show.html',
+    controller: 'UsersShowCtrl as usersShow'
+  })
+  .state('usersEdit', {
+    url: '/users/:id/edit',
+    templateUrl: 'js/views/users/edit.html',
+    controller: 'UsersEditCtrl as usersEdit'
   })
   .state('productsIndex', {
     url: '/products',
