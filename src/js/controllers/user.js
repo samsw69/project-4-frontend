@@ -11,23 +11,6 @@ function UsersIndexCtrl(User) {
   vm.all = User.query();
 }
 
-// UsersNewCtrl.$inject = ['User', '$state'];
-// function UsersNewCtrl(User, $state) {
-//   const vm = this;
-//   vm.users = User.query();
-//
-//   function submit() {
-//     User.save(vm.user)
-//     .$promise
-//     .then(() => $state.go('usersIndex'));
-//
-//   }
-//
-//   vm.submit = submit;
-//
-// }
-
-//****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********
 UsersShowCtrl.$inject = ['User', '$stateParams'];
 function UsersShowCtrl(User, $stateParams) {
   const vm = this;
@@ -40,8 +23,6 @@ function UsersShowCtrl(User, $stateParams) {
     });
 }
 
-
-//****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********
 UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];
 function UsersEditCtrl(User, $stateParams, $state) {
   const vm = this;

@@ -5,12 +5,22 @@ angular
 .controller('ProductsShowCtrl', ProductsShowCtrl)
 .controller('ProductsEditCtrl', ProductsEditCtrl);
 
-ProductsIndexCtrl.$inject = ['Product'];
-function ProductsIndexCtrl(Product) {
+ProductsIndexCtrl.$inject = ['Product', 'filterFilter', '$scope'];
+function ProductsIndexCtrl(Product, filterFilter, $scope) {
   const vm = this;
 
   vm.all = Product.query();
+
+  function filterProduct() {
+    // const params = { name: vm.q };
+
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+  $scope.$watch(() => vm.q, filterProduct);
+
+  filterProduct();
 }
+
 
 ProductsNewCtrl.$inject = ['Product', 'User', '$state'];
 function ProductsNewCtrl(Product, User, $state) {
