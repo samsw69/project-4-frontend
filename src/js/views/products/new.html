@@ -2,19 +2,27 @@
   <div class="col-md-6">
     <form ng-submit="productsNew.create()">
 
-      <label for="image">Image</label>
-      <input type="text" id="image" name="image" ng-model="productsNew.product.image">
+      <div class="form-group">
+      <label for="base64">Image</label>
+      <input type="file" id="base64" base64 name="base64" ng-model="productsNew.product.base64">
+      </div>
 
+      <div class="form-group">
       <label for="title">Title</label>
       <input type="text" id="title" name="title" ng-model="productsNew.product.title">
+      </div>
 
+      <div class="form-group">
       <label for="description">Description</label>
       <input type="text" id="description" name="description" ng-model="productsNew.product.description">
+      </div>
 
+      <div class="form-group">
       <label for="price">Price</label>
       <input type="text" id="price" name="price" ng-model="productsNew.product.price">
+      </div>
 
-      <button>Create</button>
+      <button class="btn btn-primary">Create</button>
     </form>
   </div>
 </div>

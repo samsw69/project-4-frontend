@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<a ui-sref="usersIndex" ui-sref-active="active">Back to Users</a></li>
+
+<h1>All Users</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="user">
+      <img ng-src="{{ usersShow.users.image_src }}">
+      {{usersShow}}
+      <h2>{{ usersShow.user.name }}</h2>
+      <h3>{{ usersShow.user.username }}</h3>
+      <h4>£{{ usersShow.users.email }}</h4>
+      <h4>£{{ usersShow.users.about }}</h4>
+
+    </div>
+    <button ui-sref="usersEdit({id: usersShow.user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Edit</button>
+    <button ng-click="usersShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Delete</button>
+  </div>
+</div>

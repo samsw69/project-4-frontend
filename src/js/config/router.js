@@ -14,7 +14,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   .state('usersIndex', {
     url: '/users',
     templateUrl: 'js/views/users/index.html',
-    controller: 'UsersIndexCtrl as user'
+    controller: 'UsersIndexCtrl as usersIndex'
   })
 
   //****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********

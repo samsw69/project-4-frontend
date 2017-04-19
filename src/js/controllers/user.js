@@ -1,9 +1,6 @@
 angular
 .module('artsy')
 .controller('UsersIndexCtrl', UsersIndexCtrl)
-// .controller('ProfilesNewCtrl', ProfilesNewCtrl)
-// .controller('ProfilesShowCtrl', ProfilesShowCtrl)
-// .controller('ProfilesEditCtrl', ProfilesEditCtrl)
 .controller('UsersShowCtrl', UsersShowCtrl)
 .controller('UsersEditCtrl', UsersEditCtrl);
 
@@ -45,77 +42,22 @@ function UsersShowCtrl(User, $stateParams) {
 
 
 //****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********
-UsersEditCtrl.$inject = ['User', '$stateParams'];
-function UsersEditCtrl(User, $stateParams) {
+UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];
+function UsersEditCtrl(User, $stateParams, $state) {
   const vm = this;
 
-  User
-    .get($stateParams)
-    .$promise
-    .then(response => {
-      vm.user = response;
-    });
+  User.get($stateParams).$promise.then((user) => {
+    vm.user = user;
+  });
 
-  vm.edit = () => {
+  vm.users = User.query();
+
+  function usersUpdate() {
     User
-    .update($stateParams, vm.user);
-  };
+      .update({id: vm.user.id, user: vm.user })
+      .$promise
+      .then(() => $state.go('usersIndex', $stateParams, { id: vm.user.id }));
+  }
+
+  vm.update = usersUpdate;
 }
-
-
-
-
-//
-//
-//
-// ProfileCtrl.$inject = ['Profile'];
-// function ProfileCtrl(Profile) {
-//   const vm = this;
-//
-//   vm.all = Profile.query();
-// }
-//
-// ProfilesNewCtrl.$inject = ['User', 'Profile', '$state'];
-// function ProfilesNewCtrl(User, Profile, $state) {
-//   const vm = this;
-//   vm.users = User.query();
-//
-//   function submit() {
-//     Profile.save(vm.profile)
-//     .$promise
-//     .then(() => $state.go('profilesIndex'));
-//
-//   }
-//
-//   vm.submit = submit;
-//
-// }
-//
-// ProfilesShowCtrl.$inject = ['User', 'Profile', '$stateParams'];
-// function ProfilesShowCtrl(Profile, $stateParams) {
-//   const vm = this;
-//
-//   Profile
-//     .get($stateParams)
-//     .$promise
-//     .then(response => {
-//       vm.profile = response;
-//     });
-// }
-//
-// ProfilesEditCtrl.$inject = ['User', 'Profile', '$stateParams'];
-// function ProfilesEditCtrl(Profile, $stateParams) {
-//   const vm = this;
-//
-//   Profile
-//     .get($stateParams)
-//     .$promise
-//     .then(response => {
-//       vm.profile = response;
-//     });
-//
-//   vm.edit = () => {
-//     Profile
-//     .update($stateParams, vm.profile);
-//   };
-// }

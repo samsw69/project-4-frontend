@@ -19,7 +19,8 @@ function MainCtrl($rootScope, $state, $auth) {
     if($auth.getPayload()) vm.currentUser = $auth.getPayload();
   });
 
-  const protectedStates = ['eventsNew', 'eventsEdit', 'productsNew', 'productsEdit'];
+//added users routes to protected
+  const protectedStates = ['eventsNew', 'eventsEdit', 'productsNew', 'productsEdit', 'usersShow', 'usersEdit'];
 
   $rootScope.$on('$stateChangeStart', (e, toState) => {
     if((!$auth.isAuthenticated() && protectedStates.includes(toState.name))) {
