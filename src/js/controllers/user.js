@@ -30,6 +30,7 @@ function UsersIndexCtrl(User) {
 //
 // }
 
+//****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********
 UsersShowCtrl.$inject = ['User', '$stateParams'];
 function UsersShowCtrl(User, $stateParams) {
   const vm = this;
@@ -42,6 +43,8 @@ function UsersShowCtrl(User, $stateParams) {
     });
 }
 
+
+//****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********
 UsersEditCtrl.$inject = ['User', '$stateParams'];
 function UsersEditCtrl(User, $stateParams) {
   const vm = this;

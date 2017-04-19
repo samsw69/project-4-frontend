@@ -4,10 +4,10 @@
 <ul class="row">
   <li ng-repeat="product in productsIndex.all" class="col-md-6">
     <div class="product">
-      <img ng-src="{{ product.image }}">
+      <img ng-src="{{ product.image_src }}">
       <h2>{{ product.title }}</h2>
-      <h3>{{ product.description }}</h3>
-      <h2>£{{ product.price }}</h2>
+      <!-- <h3>{{ product.description }}</h3>
+      <h2>£{{ product.price }}</h2> -->
 
       <button ui-sref="productsShow({id: product.id})">View</button>
     </div>

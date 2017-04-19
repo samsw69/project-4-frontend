@@ -16,11 +16,15 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     templateUrl: 'js/views/users/index.html',
     controller: 'UsersIndexCtrl as user'
   })
+
+  //****CHANGE THIS TO ENSURE USER CAN SHOW OWN PROFILE ONLY AND THEN EDIT IT ***********
   .state('usersShow', {
     url: '/users/:id',
     templateUrl: 'js/views/users/show.html',
     controller: 'UsersShowCtrl as usersShow'
   })
+
+  //allow user to edit their own profile only
   .state('usersEdit', {
     url: '/users/:id/edit',
     templateUrl: 'js/views/users/edit.html',

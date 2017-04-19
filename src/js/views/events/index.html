@@ -1,8 +1,11 @@
 <ul class="row">
   <li ng-repeat="event in eventsIndex.all" class="col-md-6">
     <div class="event">
-      <img ng-src="{{ event.image }}">
       <h3>{{ event.title }}</h3>
+      <h4>{{ event.date | date: 'longDate' }}</h4>
+      <img ng-src="{{ event.image_src }}">
+
+
       <button ui-sref="eventsShow({id: event.id})">View</button>
     </div>
   </li>
