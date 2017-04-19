@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <h1>Local and home-made Artwork</h1>
 
   <input type="text" class="search" ng-model="productsIndex.q" placeholder="Search...">
@@ -8,6 +9,7 @@
       <div class="product">
         <img ng-src="{{ product.image_src }}">
         <h2>{{ product.title }}</h2>
+
         <button ui-sref="productsShow({id: product.id})">View</button>
       </div>
     </div>

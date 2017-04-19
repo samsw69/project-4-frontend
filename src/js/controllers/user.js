@@ -4,11 +4,18 @@ angular
 .controller('UsersShowCtrl', UsersShowCtrl)
 .controller('UsersEditCtrl', UsersEditCtrl);
 
-UsersIndexCtrl.$inject = ['User'];
-function UsersIndexCtrl(User) {
+UsersIndexCtrl.$inject = ['User', 'filterFilter', '$scope'];
+function UsersIndexCtrl(User, filterFilter, $scope) {
   const vm = this;
 
   vm.all = User.query();
+  function filterUser() {
+
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+  $scope.$watch(() => vm.q, filterUser);
+
+  filterUser();
 }
 
 UsersShowCtrl.$inject = ['User', '$stateParams'];

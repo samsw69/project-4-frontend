@@ -3,8 +3,10 @@
 <h2>Find like minded artists in your area</h2>
 <p>See what artistic talent is in your local community and arrange meet-ups to create something new.</p>
 
+<input type="text" class="search" ng-model="usersIndex.q" placeholder="Search...">
+
 <ul class="row">
-  <li ng-repeat="user in usersIndex.all" class="col-md-6">
+  <li ng-repeat="user in usersIndex.filtered" class="col-md-6">
     <div class="user">
       <img ng-src="{{ user.image_src }}" alt="user image">
       <h2>{{ user.name }}</h2>

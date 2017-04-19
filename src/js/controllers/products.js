@@ -12,7 +12,6 @@ function ProductsIndexCtrl(Product, filterFilter, $scope) {
   vm.all = Product.query();
 
   function filterProduct() {
-    // const params = { name: vm.q };
 
     vm.filtered = filterFilter(vm.all, vm.q);
   }
@@ -20,7 +19,6 @@ function ProductsIndexCtrl(Product, filterFilter, $scope) {
 
   filterProduct();
 }
-
 
 ProductsNewCtrl.$inject = ['Product', 'User', '$state'];
 function ProductsNewCtrl(Product, User, $state) {

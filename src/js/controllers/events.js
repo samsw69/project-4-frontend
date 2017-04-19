@@ -5,11 +5,18 @@ angular
 .controller('EventsShowCtrl', EventsShowCtrl)
 .controller('EventsEditCtrl', EventsEditCtrl);
 
-EventsIndexCtrl.$inject = ['Event'];
-function EventsIndexCtrl(Event) {
+EventsIndexCtrl.$inject = ['Event', 'filterFilter', '$scope'];
+function EventsIndexCtrl(Event, filterFilter, $scope) {
   const vm = this;
 
   vm.all = Event.query();
+
+  function filterEvent() {
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+  $scope.$watch(() => vm.q, filterEvent);
+
+  filterEvent();
 }
 
 EventsNewCtrl.$inject = ['Event', 'User', '$state'];

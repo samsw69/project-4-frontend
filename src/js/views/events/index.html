@@ -1,15 +1,19 @@
+<!DOCTYPE html>
+
+<p>Artsy has a diverse community of local artists within a close proximity.</p>
+<p>We encourage our users to meet up and share skills and knowledge and to make new like-minded 'arty' friends.</p>
+<br>
+<p>Why not run an event with a few friends and show-case your favourite art-form...then sell the product back here on Artsy!</p>
+
+<input type="text" class="search" ng-model="eventsIndex.q" placeholder="Search...">
+
 <ul class="row">
   <h2>Events</h2>
-  <p>Artsy has a diverse community of local artists within a close proximity.</p>
-  <p>We encourage our users to meet up and share skills and knowledge and to make new like-minded 'arty' friends.<p>
-  <br>
-  <p>Why not run an event with a few friends and show-case your favourite art-form...then sell the product back here on Artsy!</p>
-  <li ng-repeat="event in eventsIndex.all" class="col-md-6">
+  <li ng-repeat="event in eventsIndex.filtered" class="col-md-6">
     <div class="event">
       <h3>{{ event.title }}</h3>
       <h4>{{ event.date | date: 'longDate' }}</h4>
       <img ng-src="{{ event.image_src }}">
-
 
       <button ui-sref="eventsShow({id: event.id})">View</button>
     </div>
