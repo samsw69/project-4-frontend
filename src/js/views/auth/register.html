@@ -1,43 +1,46 @@
 <!DOCTYPE html>
+<h1>Register to use the site</h1>
+
 <div class="row">
-  <div class="col-md-6">
+  <!-- <div class="col-md-6"> -->
     <form ng-submit="auth.register()">
-      <div>
-        <label>Name</label>
+
+      <div class="form-group">
+        <label for="name">Name</label>
         <input type="text" ng-model="auth.user.name">
         </div>
 
-        <div>
-        <label>Username</label>
+        <div class="form-group">
+        <label for="username">Username</label>
         <input type="text" ng-model="auth.user.username">
         </div>
 
-        <div>
-        <label>Email</label>
+        <div class="form-group">
+        <label for="email">Email</label>
         <input type="text" ng-model="auth.user.email">
         </div>
 
-        <div>
-        <label>About Me</label>
+        <div class="form-group">
+        <label for="about">About Me</label>
         <input type="text" ng-model="auth.user.about">
         </div>
 
-        <div>
-        <label>Profile Picture</label>
-        <input type="text" ng-model="auth.user.image">
+        <div class="form-group">
+        <label for="base64">Profile Picture</label>
+        <input type="file" base64 name ="base64" ng-model="auth.user.base64">
         </div>
 
-        <div>
-        <label>Password</label>
+        <div class="form-group">
+        <label for="password">Password</label>
         <input type="password" ng-model="auth.user.password">
         </div>
 
-        <div>
+        <div class="form-group">
         <label>Password Confirmation</label>
         <input type="password" ng-model="auth.user.password_confirmation">
         </div>
 
         <button>Register</button>
     </form>
-  </div>
+  <!-- </div> -->
 </div>

@@ -13,15 +13,15 @@
       <p>{{ user.about }}</p>
       <a href="mailto:{{ user.email }}" ng-if="user.email">{{ user.email }}</a>
 
-      <!-- //added -->
       <button ui-sref="usersEdit({ id: user.id })" ng-if="main.isAuthenticated() && main.currentUser.id === user.id">Edit</button>
+      <!-- <button ui-sref="usersNew({ id: user.id })" ng-if="main.isAuthenticated() && main.currentUser.id === user.id">New</button> -->
       <button ng-click="usersShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.user.id">Delete</button>
-      <!-- end of add -->
+
 
 
 
       <!-- *********Will require this button to activate only when user = owner ************-->
-      <!-- <button ui-sref="usersShow({id: user.id})">View</button> -->
+      <button ui-sref="usersShow({id: user.id})">View</button>
     </div>
   </li>
 </ul>

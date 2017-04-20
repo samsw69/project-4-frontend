@@ -30,6 +30,14 @@
       </div>
 
       <div class="form-group">
+        <label>Genre</label><br>
+        <select ng-model="eventsNew.event.genre_id" class="select">
+          <option disabled selected value="">Please select...</option>
+          <option ng-repeat="genre in eventsNew.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
       <label>Attendees</label>
       <label ng-repeat="user in eventsNew.users">
         <input type="checkbox" name="attendees" checklist-model="eventsNew.event.attendee_ids" checklist-value="user.id">{{ user.username }}

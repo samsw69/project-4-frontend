@@ -12,7 +12,6 @@ function ProductsIndexCtrl(Product, filterFilter, $scope) {
   vm.all = Product.query();
 
   function filterProduct() {
-
     vm.filtered = filterFilter(vm.all, vm.q);
   }
   $scope.$watch(() => vm.q, filterProduct);
@@ -20,11 +19,12 @@ function ProductsIndexCtrl(Product, filterFilter, $scope) {
   filterProduct();
 }
 
-ProductsNewCtrl.$inject = ['Product', 'User', '$state'];
-function ProductsNewCtrl(Product, User, $state) {
+ProductsNewCtrl.$inject = ['Product', 'User', 'Genre', '$state'];
+function ProductsNewCtrl(Product, User, Genre, $state) {
   const vm = this;
   vm.product = {};
   vm.users = User.query();
+  vm.genres = Genre.query();
 
 
   function productsCreate() {
@@ -37,8 +37,8 @@ function ProductsNewCtrl(Product, User, $state) {
   vm.create = productsCreate;
 }
 
-ProductsShowCtrl.$inject = ['Product', 'User', '$stateParams', '$state', '$auth'];
-function ProductsShowCtrl(Product, User, $stateParams, $state, $auth) {
+ProductsShowCtrl.$inject = ['Product', 'User', 'Genre', '$stateParams', '$state', '$auth'];
+function ProductsShowCtrl(Product, User, Genre, $stateParams, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
@@ -53,9 +53,12 @@ function ProductsShowCtrl(Product, User, $stateParams, $state, $auth) {
   vm.delete = productsDelete;
 }
 
-ProductsEditCtrl.$inject = ['Product', 'User', '$stateParams', '$state'];
-function ProductsEditCtrl(Product, User, $stateParams, $state) {
+ProductsEditCtrl.$inject = ['Product', 'User', 'Genre',  '$stateParams', '$state'];
+function ProductsEditCtrl(Product, User, Genre, $stateParams, $state) {
   const vm = this;
+
+  vm.genres = Genre.query();
+
 
   Product.get($stateParams).$promise.then((product) => {
     vm.product = product;

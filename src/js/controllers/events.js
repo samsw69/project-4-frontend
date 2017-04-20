@@ -19,11 +19,12 @@ function EventsIndexCtrl(Event, filterFilter, $scope) {
   filterEvent();
 }
 
-EventsNewCtrl.$inject = ['Event', 'User', '$state'];
-function EventsNewCtrl(Event, User, $state) {
+EventsNewCtrl.$inject = ['Event', 'User', 'Genre', '$state'];
+function EventsNewCtrl(Event, User, Genre, $state) {
   const vm = this;
   vm.event = {};
   vm.users = User.query();
+  vm.genres = Genre.query();
 
 
   function eventsCreate() {
@@ -36,8 +37,8 @@ function EventsNewCtrl(Event, User, $state) {
   vm.create = eventsCreate;
 }
 
-EventsShowCtrl.$inject = ['Event', 'User', 'Comment', '$stateParams', '$state', '$auth'];
-function EventsShowCtrl(Event, User, Comment, $stateParams, $state, $auth) {
+EventsShowCtrl.$inject = ['Event', 'User', 'Genre','Comment', '$stateParams', '$state', '$auth'];
+function EventsShowCtrl(Event, User, Genre, Comment, $stateParams, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
@@ -102,13 +103,17 @@ function EventsShowCtrl(Event, User, Comment, $stateParams, $state, $auth) {
   vm.isAttending = isAttending;
 }
 
-EventsEditCtrl.$inject = ['Event', 'User', '$stateParams', '$state'];
-function EventsEditCtrl(Event, User, $stateParams, $state) {
+EventsEditCtrl.$inject = ['Event', 'User', 'Genre','$stateParams', '$state'];
+function EventsEditCtrl(Event, User, Genre, $stateParams, $state) {
   const vm = this;
+
+  vm.genres = Genre.query();
+
 
   Event.get($stateParams).$promise.then((event) => {
     vm.event = event;
     vm.event.date = new Date(event.date);
+
   });
 
   vm.users = User.query();

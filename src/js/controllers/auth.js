@@ -25,7 +25,11 @@ function AuthCtrl($auth, $state) {
       // .then(() => $state.go('profile'));
       .then((user) => {
         console.log(user);
-        $state.go('usersShow', {id: user.data.user.id });
+        if (!user.data.user.name || !user.data.user.username || !user.data.user.email || !user.data.user.about || !user.data.user.image_src) {
+          $state.go('usersEdit', {id: user.data.user.id });
+        } else {
+          $state.go('usersIndex');
+        }
       });
   }
 

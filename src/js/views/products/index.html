@@ -5,10 +5,12 @@
   <input type="text" class="search" ng-model="productsIndex.q" placeholder="Search...">
 
 <ul class="row">
-    <div ng-repeat="product in productsIndex.filtered" class="col-md-6">
+    <div ng-repeat="product in productsIndex.filtered" class="col-md-4">
       <div class="product">
         <img ng-src="{{ product.image_src }}">
         <h2>{{ product.title }}</h2>
+        <h2>{{ product.genre.name }}</h2>
+
 
         <button ui-sref="productsShow({id: product.id})">View</button>
       </div>
