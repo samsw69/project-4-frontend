@@ -40,7 +40,7 @@ function ProductsNewCtrl(Product, User, Genre, $state) {
 ProductsShowCtrl.$inject = ['Product', 'User', 'Genre', '$stateParams', '$state', '$auth'];
 function ProductsShowCtrl(Product, User, Genre, $stateParams, $state, $auth) {
   const vm = this;
-  if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
   vm.genres = [];
 
   function getProductGenres() {
@@ -56,8 +56,12 @@ function ProductsShowCtrl(Product, User, Genre, $stateParams, $state, $auth) {
             vm.product.genre_ids.forEach((genreId) => {
               console.log(genres);
               genres.forEach((genre) => {
+                // console.log(genre.id);
+                // console.log(genreId);
                 if (genreId === genre.id) {
+                  console.log(vm.genres);
                   vm.genres.push(genre);
+                  console.log(vm.genres);
                 }
               });
             });

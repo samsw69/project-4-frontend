@@ -16,7 +16,7 @@
 
       <div class="form-group">
         <label>Genre</label><br>
-        <select ng-model="productsEdit.product.genre_id" class="select">
+        <select ng-model="productsEdit.product.genre_ids" class="select">
           <option disabled selected value="">Please select...</option>
           <option ng-repeat="genre in productsEdit.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
         </select>
@@ -32,10 +32,6 @@
         <input type="integer" id="price" name="price" ng-model="productsEdit.product.price">
       </div>
 
-      <div class="form-group">
-        <label for="gen">Price</label>
-        <input type="integer" id="price" name="price" ng-model="productsEdit.product.price">
-      </div>
 
       <button class="btn btn-primary">Update</button>
     </form>

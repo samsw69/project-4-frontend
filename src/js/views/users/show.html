@@ -19,7 +19,9 @@
 
     <div class="my_meetup">
       <h2>My Meet-ups</h2>
-      <p ng-repeat="event in usersShow.user.events_created">{{ event.title }}</p>
+      <div ng-repeat="event in usersShow.user.events_created">
+        <a ui-sref="eventsShow({ id: event.id })"><h2>{{ event.title }}</h2></a>
+      </div>
     </div>
 
 
