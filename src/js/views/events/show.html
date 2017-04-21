@@ -10,6 +10,8 @@
       <h2>{{ eventsShow.event.title }}</h2>
       <h3>{{ eventsShow.event.location }}</h3>
       <h4>{{ eventsShow.event.date | date: 'longDate' }}</h4>
+      <p>{{ eventsShow.event.genre.name }}</p>
+
       <p>{{ eventsShow.event.description }}</p>
       <p>Created by: <strong>{{ eventsShow.event.user.name }}</strong></p>
 
@@ -47,5 +49,17 @@
         <button>Create</button>
       </form>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form ng-submit="eventsShow.searchProducts(eventsShow.etsyTerm)">
+      <input type="text" ng-model="eventsShow.etsyTerm">
+      <button>Search</button>
+    </form>
+    <ul class="row">
+      <li class="col-md-3" ng-repeat="result in eventsShow.etsyResults"><a href="{{ result.url }}"><img ng-src="{{ result.Images[0].url_570xN }}"></a></li>
+    </ul>
   </div>
 </div>

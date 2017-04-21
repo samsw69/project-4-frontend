@@ -7,10 +7,16 @@
     <div class="product">
       <img ng-src="{{ productsShow.product.image_src }}">
       <h2>{{ productsShow.product.title }}</h2>
+      <ul>
+        <li ng-repeat="genre in productsShow.genres">{{ genre.name }}</li>
+      </ul>
       <h3>{{ productsShow.product.description }}</h3>
       <h4>£{{ productsShow.product.price }}</h4>
 
       <p>Created by: <strong>{{ productsShow.product.user.username }}</strong></p>
+      <p> Contact {{ productsShow.product.user.name }} to purchase this item</p>
+      <a href="mailto:{{ productsShow.product.user.email }}" ng-if="productsShow.product.user.email">{{ productsShow.product.user.email }}</a>
+
     </div>
     <button ui-sref="productsEdit({id: productsShow.product.id})" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Edit</button>
     <button ng-click="productsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Delete</button>

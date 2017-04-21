@@ -41,8 +41,30 @@ ProductsShowCtrl.$inject = ['Product', 'User', 'Genre', '$stateParams', '$state'
 function ProductsShowCtrl(Product, User, Genre, $stateParams, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  vm.genres = [];
 
-  vm.product = Product.get($stateParams);
+  function getProductGenres() {
+    Genre
+      .query()
+      .$promise
+      .then((genres) => {
+        Product
+          .get($stateParams)
+          .$promise
+          .then((product) => {
+            vm.product = product;
+            vm.product.genre_ids.forEach((genreId) => {
+              console.log(genres);
+              genres.forEach((genre) => {
+                if (genreId === genre.id) {
+                  vm.genres.push(genre);
+                }
+              });
+            });
+          });
+      });
+  }
+  getProductGenres();
 
   function productsDelete() {
     vm.product

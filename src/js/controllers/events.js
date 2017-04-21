@@ -37,12 +37,27 @@ function EventsNewCtrl(Event, User, Genre, $state) {
   vm.create = eventsCreate;
 }
 
-EventsShowCtrl.$inject = ['Event', 'User', 'Genre','Comment', '$stateParams', '$state', '$auth'];
-function EventsShowCtrl(Event, User, Genre, Comment, $stateParams, $state, $auth) {
+EventsShowCtrl.$inject = ['Event', 'User', 'Genre','Comment', '$stateParams', '$state', '$auth', 'Etsy'];
+function EventsShowCtrl(Event, User, Genre, Comment, $stateParams, $state, $auth, Etsy) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
-  vm.event = Event.get($stateParams);
+  Event.get($stateParams)
+    .$promise
+    .then((event) => {
+      vm.event = event;
+      searchProducts(event.genre.name);
+    });
+
+  function searchProducts(keywords) {
+    Etsy.searchProducts(keywords)
+      .then((results) => {
+        vm.etsyResults = results;
+        console.log(results[0]);
+      });
+  }
+
+  vm.searchProducts = searchProducts;
 
   function eventsDelete() {
     vm.event
@@ -97,7 +112,7 @@ function EventsShowCtrl(Event, User, Genre, Comment, $stateParams, $state, $auth
   vm.toggleAttending = toggleAttending;
 
   function isAttending() {
-    return $auth.getPayload() && vm.event.$resolved && vm.event.attendee_ids.includes(vm.currentUser.id) ;
+    return $auth.getPayload() && vm.event && vm.event.$resolved && vm.event.attendee_ids.includes(vm.currentUser.id) ;
   }
 
   vm.isAttending = isAttending;

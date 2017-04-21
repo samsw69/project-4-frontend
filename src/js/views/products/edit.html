@@ -15,12 +15,25 @@
       </div>
 
       <div class="form-group">
+        <label>Genre</label><br>
+        <select ng-model="productsEdit.product.genre_id" class="select">
+          <option disabled selected value="">Please select...</option>
+          <option ng-repeat="genre in productsEdit.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="description">Description</label>
         <input type="text" id="description" name="description" ng-model="productsEdit.product.description">
       </div>
 
       <div class="form-group">
         <label for="price">Price</label>
+        <input type="integer" id="price" name="price" ng-model="productsEdit.product.price">
+      </div>
+
+      <div class="form-group">
+        <label for="gen">Price</label>
         <input type="integer" id="price" name="price" ng-model="productsEdit.product.price">
       </div>
 
