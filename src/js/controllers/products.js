@@ -17,6 +17,11 @@ function ProductsIndexCtrl(Product, filterFilter, $scope) {
   $scope.$watch(() => vm.q, filterProduct);
 
   filterProduct();
+
+  vm.myInterval = 5000; // The time delay between each slide
+  vm.noWrapSlides = false; // This will decide whether or not the carousel is 'infinite' or not, i.e whether you can keep going round in a loop with the arrow buttons
+  vm.active = 3; // This decides which slide is shown first (based on it's index in the array of slides)
+
 }
 
 ProductsNewCtrl.$inject = ['Product', 'User', 'Genre', '$state'];
@@ -40,7 +45,8 @@ function ProductsNewCtrl(Product, User, Genre, $state) {
 ProductsShowCtrl.$inject = ['Product', 'User', 'Genre', '$stateParams', '$state', '$auth'];
 function ProductsShowCtrl(Product, User, Genre, $stateParams, $state, $auth) {
   const vm = this;
-  // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  // review - the next line was removed by AM
+  if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
   vm.genres = [];
 
   function getProductGenres() {

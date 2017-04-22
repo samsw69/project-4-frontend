@@ -9,7 +9,7 @@
   <li ng-repeat="user in usersIndex.filtered" class="col-md-6">
     <div class="user">
       <img ng-src="{{ user.image_src }}" alt="user image">
-      <h2>{{ user.name }}</h2>
+      <h3>{{ user.name }}</h3>
       <p>{{ user.about }}</p>
       <a href="mailto:{{ user.email }}" ng-if="user.email">{{ user.email }}</a>
 

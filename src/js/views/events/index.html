@@ -1,20 +1,33 @@
 <!DOCTYPE html>
+<h1>Meet-ups</h1>
 
-<p>Artsy has a diverse community of local artists within a close proximity.</p>
-<p>We encourage our users to meet up and share skills and knowledge and to make new like-minded 'arty' friends.</p>
-<br>
-<p>Why not run an event with a few friends and show-case your favourite art-form...then sell the product back here on Artsy!</p>
+<div class="container">
+  <div class="row" id="eventsBanner">
+    <div class="col-md-6">
+      <h2>Host an Event</h2>
+      <p>Artsy has a diverse community of local artists.</p>
+      <p>We encourage our users to meet up and share their artistic skills and knowledge and of course...to make new like-minded, art-loving  friends.</p>
 
-<input type="text" class="search" ng-model="eventsIndex.q" placeholder="Search...">
+      <p>Why not run an event with a few friends and show-case your favourite artwork?  ... then sell the product back here on Artsy!</p>
+      <button ui-sref="eventsNew">Host an Event</button>
+    </div>
 
-<button ui-sref="eventsNew">Host an Event</button>
 
+    <div class="col-md-6">
+      <h2>Find an event</h2>
+      <p>Use the search box below to find an event that interests you.</p>
+      <p>Search your favourite hobby or skill to see what's on.</p>
+
+      <input type="text" class="search" ng-model="eventsIndex.q" placeholder="Find art supplies...">
+    </div>
+  </div>
+</div>
 
 <ul class="row">
   <h2>Events</h2>
   <li ng-repeat="event in eventsIndex.filtered" class="col-md-4">
     <div class="event">
-      <h3>{{ event.title }}</h3>
+      <h2>{{ event.title }}</h2>
       <h3>{{ event.genre.name }}</h3>
       <h4>{{ event.date | date: 'longDate' }}</h4>
       <img ng-src="{{ event.image_src }}">

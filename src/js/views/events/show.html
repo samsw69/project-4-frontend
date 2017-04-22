@@ -2,18 +2,20 @@
 
 <a ui-sref="eventsIndex" ui-sref-active="active">View All Events</a>
 
-<h1>SHOW me some events</h1>
+<!-- <h1>SHOW me some events</h1> -->
+<h1>{{ eventsShow.event.title }}</h1>
+
 <div class="row">
   <div class="col-md-6">
     <div class="event">
       <img ng-src="{{ eventsShow.event.image_src }}">
-      <h2>{{ eventsShow.event.title }}</h2>
-      <h3>{{ eventsShow.event.location }}</h3>
-      <h4>{{ eventsShow.event.date | date: 'longDate' }}</h4>
-      <p>{{ eventsShow.event.genre.name }}</p>
+      <!-- <h2>{{ eventsShow.event.title }}</h2> -->
+      <h2>{{ eventsShow.event.location }}</h2>
+      <h3>{{ eventsShow.event.date | date: 'longDate' }}</h3>
+      <p>Genre: {{ eventsShow.event.genre.name }}</p>
 
       <p>{{ eventsShow.event.description }}</p>
-      <p>Created by: <strong>{{ eventsShow.event.user.name }}</strong></p>
+      <p>Hosted by: <strong>{{ eventsShow.event.user.name }}</strong></p>
 
       <button ng-click="eventsShow.toggleAttending()" ng-if="!eventsShow.isAttending() && main.isAuthenticated()">Attend</button>
 
@@ -34,32 +36,40 @@
   </div>
 </div>
 
-<div class="comments">
-  <div class="row">
+<div class="row">
+  <div class="comments">
     <div class="col-md-6">
       <h2>Comments</h2>
       <ul>
         <li ng-repeat="comment in eventsShow.event.comments">{{ comment.body }} - <strong>{{ comment.user.username }}</strong><button ng-click="eventsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button></li>
       </ul>
     </div>
-    <div class="col-md-6" ng-if="main.isAuthenticated()">
-      <h2>Add Comment</h2>
+    <div class="col-md-6"
+     ng-if="main.isAuthenticated()">
+      <h5>Add Comment</h5>
       <form ng-submit="eventsShow.addComment()">
         <textarea type="text" name="body" ng-model="eventsShow.comment.body"></textarea>
-        <button>Create</button>
+          <button>Create</button>
       </form>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <form ng-submit="eventsShow.searchProducts(eventsShow.etsyTerm)">
-      <input type="text" ng-model="eventsShow.etsyTerm">
-      <button>Search</button>
-    </form>
-    <ul class="row">
-      <li class="col-md-3" ng-repeat="result in eventsShow.etsyResults"><a href="{{ result.url }}"><img ng-src="{{ result.Images[0].url_570xN }}"></a></li>
-    </ul>
+  <div class="search">
+    <div class="col-md-12">
+      <h3>Search for materials</h3>
+      <p> May be you know what materials you need already? Use the search box below to buy them before your meet-up.</p>
+      <form ng-submit="eventsShow.searchProducts(eventsShow.etsyTerm)">
+        <input type="text" ng-model="eventsShow.etsyTerm">
+        <button>Search</button>
+        <h3>Looking for inspiration?</h3>
+        <p>We've selected some items you may be interested in, based on this events genre.</p>
+
+      </form>
+      <ul class="row">
+        <li class="col-md-3" ng-repeat="result in eventsShow.etsyResults"><a href="{{ result.url }}"><img ng-src="{{ result.Images[0].url_570xN }}"></a></li>
+      </ul>
+    </div>
   </div>
 </div>

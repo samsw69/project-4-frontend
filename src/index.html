@@ -4,7 +4,7 @@
     <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> -->
 
     <title>Artsy</title>
     <!-- inject:js -->
@@ -19,24 +19,35 @@
       <header class="l-box">
         <img ng-src="/images/artsy_logo.png">
     <!-- <header> -->
-          <nav>
-            <ul>
-              <li><a ui-sref="home">Home</a></li>
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+              <ul class="nav navbar-nav">
+                <li><a ui-sref="home">Home</a></li>
 
-              <li ng-if="!main.isAuthenticated()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
+                <li ng-if="!main.isAuthenticated()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
 
-              <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
+                <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
 
-              <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
+                <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
 
-              <li ng-if="main.isAuthenticated()"><a ui-sref="eventsIndex" ui-sref-active="active">View Events</a></li>
+                <li ng-if="main.isAuthenticated()"><a ui-sref="eventsIndex" ui-sref-active="active">View Events</a></li>
 
-              <li ng-if="main.isAuthenticated()"><a ui-sref="productsIndex" ui-sref-active="active">Buy Art</a></li>
+                <li ng-if="main.isAuthenticated()"><a ui-sref="productsIndex" ui-sref-active="active">Buy Art</a></li>
 
-              <li ng-if="main.isAuthenticated()"><a ui-sref="usersIndex" ui-sref-active="active">Meet Artists</a></li>
+                <li ng-if="main.isAuthenticated()"><a ui-sref="usersIndex" ui-sref-active="active">Meet Artists</a></li>
 
             </ul>
-          </nav>
+          </div>
+        </nav>
       </header>
 
     <div class="message" ng-if="main.message">

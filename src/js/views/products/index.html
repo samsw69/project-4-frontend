@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 
-<h1>Local and home-made Artwork</h1>
+<h1>Artwork</h1>
 
   <input type="text" class="search" ng-model="productsIndex.q" placeholder="Search...">
 
   <button ui-sref="productsNew">Sell an item</button>
+
+  <div uib-carousel active="productsIndex.active" interval="productsIndex.myInterval" no-wrap="productsIndex.noWrapSlides">
+    <div uib-slide ng-repeat="product in productsIndex.all" index="$index">
+      <img ng-src="{{product.image_src}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>{{ product.title }}</h4>
+        <!-- <p>{{slide.text}}</p> -->
+      </div>
+    </div>
+  </div>
 
 <ul class="row">
     <div ng-repeat="product in productsIndex.filtered" class="col-md-4">

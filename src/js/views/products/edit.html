@@ -14,13 +14,20 @@
         <input type="text" id="title" name="title" ng-model="productsEdit.product.title">
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label>Genre</label><br>
         <select ng-model="productsEdit.product.genre_ids" class="select">
           <option disabled selected value="">Please select...</option>
           <option ng-repeat="genre in productsEdit.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
         </select>
-      </div>
+      </div> -->
+
+      <div class="form-group">
+        <label>Genre</label><br>
+        <label ng-repeat="genre in productsEdit.genres">
+          <input type="checkbox" name="genres" checklist-model="productsEdit.product.genres" checklist-value="genre.id">{{ genre.name }}
+        </label>
+        </div>
 
       <div class="form-group">
         <label for="description">Description</label>
