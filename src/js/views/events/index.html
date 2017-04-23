@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<h1>Meet-ups</h1>
+<h1>Artsy Meet-ups</h1>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row" id="eventsBanner">
     <div class="col-md-6">
       <h2>Host an Event</h2>
@@ -28,7 +28,7 @@
   <li ng-repeat="event in eventsIndex.filtered" class="col-md-4">
     <div class="event">
       <h2>{{ event.title }}</h2>
-      <h3>{{ event.genre.name }}</h3>
+      <h4>Genre: {{ event.genre.name }}</h4>
       <h4>{{ event.date | date: 'longDate' }}</h4>
       <img ng-src="{{ event.image_src }}">
 

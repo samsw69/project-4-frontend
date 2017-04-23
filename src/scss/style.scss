@@ -11,8 +11,6 @@ font-family: 'Muli', sans-serif;
 }
 
 body {
-  // font-family: 'Quicksand', sans-serif;
-  // font-family: 'Muli', sans-serif;
   margin-left: 10px;
   line-height: 1.8;
   color: $black;
@@ -83,7 +81,9 @@ h3 {
   text-align: left;
 }
 h4 {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #black;
 }
 p {
   font-size: 18px;
@@ -98,6 +98,7 @@ a {
 ul {
   list-style: none;
 }
+
 header {
   position: absolute;
   top: 0;
@@ -106,6 +107,7 @@ header {
   margin-bottom: 10px;
   nav {
     // @extend.container;
+    background-color: $white;
     height: 60px;
     ul {
       li {
@@ -157,9 +159,92 @@ header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/hero.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 90vh;
 }
-//
+
+.login {
+  margin: 20px;
+  margin-bottom: 30px;
+  button {
+    font-size: 14px;
+    padding: 2px 4px;
+    @extend .button;
+    @extend .button--blue;
+    margin-left: 10px;
+    position: relative;
+    top: -2px;
+  }
+}
+
+.users {
+  p {
+    margin-bottom: 10px;
+  }
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+  img {
+    max-width: 300px;
+  }
+}
+
+.products {
+  @extend .border;
+  @extend .border--blue;
+  margin: 20px;
+  p {
+    margin-bottom: 10px;
+  }
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+}
+
+
+#carousel {
+
+  // height: 350px;
+  background-color: #white;
+  // img {
+  //   height: 130%;
+  // }
+}
+.user {
+  @extend .border;
+  @extend .border--pink;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-top: 20px;
+  h4 {
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+//   margin: 20px;
+//   margin-bottom: 30px;
+//   button {
+//     font-size: 14px;
+//     padding: 2px 4px;
+//     @extend .button;
+//     @extend .button--pink;
+//     margin-left: 20px;
+//     position: relative;
+//     top: -2px;
+//   }
+// }
+
+
+#my_meetups, #my_products {
+  h3 {
+    text-transform: lowercase;
+    text-decoration: underline;
+    font-weight: normal;  
+  }
+}
+
+
 .attendees {
   @extend .border;
   @extend .border--blue;
@@ -216,6 +301,7 @@ header {
 #eventsBanner {
   @extend .border;
   @extend .border--blue;
+  margin-right: 20px;
   button {
     font-size: 12px;
     padding: 2px 4px;
@@ -239,6 +325,7 @@ header {
   margin-left: 10px;
   @extend .border--blue;
   margin-top: 20px;
+  margin-bottom: 20px;
   button {
     font-size: 8px;
     padding: 2px 4px;
@@ -250,6 +337,7 @@ header {
   }
 }
 
+
 .event {
   @extend .border;
   @extend .border--pink;
@@ -259,7 +347,17 @@ header {
   }
   button {
     @extend .button;
-    @extend .button--pink;
+    @extend .button--blue;
+  }
+  img {
+    margin-bottom: 20px;
+    max-width: 300px;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin-bottom: 10px;
   }
 }
 //
@@ -350,4 +448,17 @@ form {
       border-radius: 2px;
     }
   }
+}
+
+
+
+footer {
+  background-color: #white;
+  padding: 10px 0;
+  // padding-top: 100px;
+  text-align: center;
+  color: white;
+  // position: fixed;
+  bottom: 0;
+  width: 100%;
 }

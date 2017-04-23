@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <a ui-sref="usersIndex" ui-sref-active="active">Back to Users</a>
 
-<h1>All Users</h1>
+<h1>{{ usersShow.user.name }}</h1>
 <div class="row">
   <div class="col-md-6">
     <div class="user">
@@ -9,21 +9,34 @@
       <!-- {{usersShow}} -->
       <h2>{{ usersShow.user.name }}</h2>
       <h3>{{ usersShow.user.username }}</h3>
-      <h4>{{ usersShow.user.email }}</h4>
+      <a href="{{ usersShow.user.email }}">email: {{ usersShow.user.email }}</a>
       <h4>{{ usersShow.user.about }}</h4>
-
     </div>
       <button ui-sref="usersEdit({id: usersShow.user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Edit</button>
       <button ng-click="usersShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Delete</button>
     </div>
 
-    <div class="my_meetup">
+    <div id="my_meetups">
       <h2>My Meet-ups</h2>
-      <div ng-repeat="event in usersShow.user.events_created">
-        <a ui-sref="eventsShow({ id: event.id })"><h2>{{ event.title }}</h2></a>
-      </div>
+      <ul>
+        <li>
+          <div ng-repeat="event in usersShow.user.events_created">
+            <a ui-sref="eventsShow({ id: event.id })"><h3>{{ event.title }} meet up</h3></a>
+          </div>
+        </li>
+      </ul>
     </div>
 
+      <div id="my_products">
+        <h2>My Artwork for Sale</h2>
+        <ul>
+          <li>
+            <div ng-repeat="product in usersShow.user.products_created">
+              <a ui-sref="productsShow({ id: product.id })"><h3>{{ product.title }}</h3></a>
+            </div>
+          </li>
+        </ul>
+      </div>
 
 
-</div>
+    </div>
