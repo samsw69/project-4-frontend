@@ -5,8 +5,8 @@ angular
 .controller('ProductsShowCtrl', ProductsShowCtrl)
 .controller('ProductsEditCtrl', ProductsEditCtrl);
 
-ProductsIndexCtrl.$inject = ['Product', 'filterFilter', '$scope'];
-function ProductsIndexCtrl(Product, filterFilter, $scope) {
+ProductsIndexCtrl.$inject = ['Product', 'Genre', 'filterFilter', '$scope'];
+function ProductsIndexCtrl(Product, Genre, filterFilter, $scope) {
   const vm = this;
 
   vm.all = Product.query();

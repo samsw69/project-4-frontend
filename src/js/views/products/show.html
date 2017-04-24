@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <a ui-sref="productsIndex" ui-sref-active="active"> Back to All Products</a>
 
-<h1>Art for Sale</h1>
-<div class="row">
-  <div class="col-md-6">
-    <div class="product">
-      <img ng-src="{{ productsShow.product.image_src }}">
-      <h2>{{ productsShow.product.title }}</h2>
-      <ul>
-        <li ng-repeat="genre in productsShow.genres">Genre: {{ genre.name }}</li>
-      </ul>
-      <h3>{{ productsShow.product.description }}</h3>
-      <h4>£{{ productsShow.product.price }}</h4>
-
-      <p>Created by: <strong>{{ productsShow.product.user.username }}</strong></p>
-      <p> Contact {{ productsShow.product.user.name }} to purchase this item </p>
-      <a href="mailto:{{ productsShow.product.user.email }}" ng-if="productsShow.product.user.email">{{ productsShow.product.user.email }}</a>
-
+<h1>{{ productsShow.product.title }}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product_image">
+        <img ng-src="{{ productsShow.product.image_src }}">
+      </div>
     </div>
-    <button ui-sref="productsEdit({id: productsShow.product.id})" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Edit</button>
-    <button ng-click="productsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Delete</button>
+
+    <div class="col-md-6">
+      <div class="product_info">
+        <h3>{{ productsShow.product.description }}</h3>
+        <ul>
+          <li ng-repeat="genre in productsShow.genres">Genre: {{ genre.name }}</li>
+        </ul>
+        <h4>Price: £{{ productsShow.product.price }}</h4>
+
+        <p>Created by: <strong>{{ productsShow.product.user.username }}</strong></p>
+        <p> Contact {{ productsShow.product.user.name }} to purchase this item </p>
+        <a href="mailto:{{ productsShow.product.user.email }}" ng-if="productsShow.product.user.email">{{ productsShow.product.user.email }}</a>
+        <br>
+        <button ui-sref="productsEdit({id: productsShow.product.id})" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Edit</button>
+        <button ng-click="productsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === productsShow.product.user.id">Delete</button>
+      </div>
+    </div>
   </div>
 </div>

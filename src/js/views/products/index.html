@@ -3,28 +3,30 @@
   <h2>Browse homemade arts and crafts</h2>
   <p>Search art-styles or keywords to find something you love, then contact the artist to find our more or make a purchase.</p>
   <input type="text" class="search" ng-model="productsIndex.q" placeholder="Search products...">
-  <p>Find some unexpected arts and crafts, all made by independant artists and within local communities<br> You can also sell your artwork here simply by clicking on the button below...</p>
-  <br><button ui-sref="productsNew">Sell artwork...</button><br>
+  <p>Find some unexpected arts and crafts, all made by independant artists and within local communities.<br>You can also sell your artwork here simply by clicking on the button below...</p>
 
+  <div class="sell_button">
+    <br><button ui-sref="productsNew">Sell artwork...</button><br>
+  </div>
 
   <div id="carousel">
     <div uib-carousel active="productsIndex.active" interval="productsIndex.myInterval" no-wrap="productsIndex.noWrapSlides">
       <div uib-slide ng-repeat="product in productsIndex.all" index="$index">
         <img ng-src="{{product.image_src}}" style="margin:auto;">
-      <!-- <div class="carousel-caption"> -->
       </div>
     </div>
   </div>
-
-  <div class="products">
-    <ul class="row">
-      <li ng-repeat="product in productsIndex.filtered" class="col-md-3">
-        <img ng-src="{{ product.image_src }}" alt="product image">
-        <h3>{{ product.title }}</h3>
-        <!-- FIX THIS -->
-        <h2>{{ product.genre.name }}</h2>
-        <!-- ************ -->
-        <button ui-sref="productsShow({id: product.id})">View</button>
-      </li>
-    </ul>
-  </div>
+  <!-- <div class="container"> -->
+    <div class="products">
+      <ul class="row">
+        <li ng-repeat="product in productsIndex.filtered" class="col-md-3">
+          <img ng-src="{{ product.image_src }}" alt="product image">
+          <h3>{{ product.title }}</h3>
+          <!-- FIX THIS -->
+          <!-- <h2>{{ products.id.genres.name }}</h2> -->
+          <!-- ************ -->
+          <button ui-sref="productsShow({id: product.id})">View</button>
+        </li>
+      </ul>
+    </div>
+  <!-- </div> -->
