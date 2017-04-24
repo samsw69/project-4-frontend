@@ -15,6 +15,7 @@ body {
   color: $black;
   &:not(.home) {
     main {
+      margin-bottom: 30px;
       @extend .container !optional
     }
     header {
@@ -33,6 +34,10 @@ body {
   }
 }
 
+.l-box {
+  padding-top: 20px;
+  padding-left: 5px;
+}
 img {
   max-height: 250px;
 
@@ -271,12 +276,9 @@ header {
 
 
 #carousel {
-
-  // height: 350px;
-  // background-color: #white;
-  // img {
-  //   height: 130%;
-  // }
+  img {
+    min-height: 350px;
+  }
 }
 .user {
   @extend .border;
@@ -480,12 +482,8 @@ form {
       padding: 9px;
     }
   }
-//   button {
-//     @extend .button;
-//     @extend .button--blue;
-//     width: 100%;
-//   }
 }
+
 .sell_button {
   button {
     @extend .button;
@@ -494,8 +492,7 @@ form {
     margin: 10px;
   }
 }
-// .justify-content-md-center {
-//   text-align: center;
+
 .product_image {
   height: 500px;
   margin: 0 auto;
