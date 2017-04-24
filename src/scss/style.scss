@@ -1,8 +1,7 @@
-// @import 'vendor/reset/reset';
-// @import 'vendor/bootstrap/bootstrap-grid';
+
 @import 'variables';
 @import 'extends';
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500');
+// @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500');
 @import url('https://fonts.googleapis.com/css?family=Muli:400,500');
 
 * {
@@ -23,6 +22,7 @@ body {
       nav {
         ul {
           li {
+            list-style: none;
             a {
                color: $black;
              }
@@ -51,9 +51,9 @@ strong {
   font-weight: 500;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 5px;
-}
+// h1, h2, h3, h4, h5, h6, p {
+//   margin-bottom: 5px;
+// }
 
 h1, h2, h5 {
   text-transform: uppercase;
@@ -66,38 +66,49 @@ h1 {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
+  // new
+  font-size: 36px;
 }
 
 h2 {
   color: $brand-primary;
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 30px;
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+
 }
 h3 {
   font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-weight: normal;
+  text-transform: lowercase;
   color: $brand-secondary;
-  text-align: left;
+  // text-align: center;
 }
 h4 {
   font-size: 18px;
-  font-weight: bold;
+  font-weight:400;
   color: #black;
+  font-weight: bold;
 }
-p {
+p, li {
   font-size: 18px;
 }
 
 a {
-  font-size: 16px;
+  font-size: 18px;
   color: $brand-primary;
-  text-decoration-line: none;
+  text-decoration-line: none, lowercase;
+
 }
 
-ul {
-  list-style: none;
-}
+// ul {
+//   list-style: none;
+// }
 
 header {
   position: absolute;
@@ -177,6 +188,9 @@ header {
 }
 
 .users {
+  ul {
+    list-style: none;
+  }
   p {
     margin-bottom: 10px;
   }
@@ -199,6 +213,10 @@ header {
   button {
     @extend .button;
     @extend .button--blue;
+    margin-bottom: 15px;
+  }
+  ul {
+    list-style: none;
   }
 }
 
@@ -206,7 +224,7 @@ header {
 #carousel {
 
   // height: 350px;
-  background-color: #white;
+  // background-color: #white;
   // img {
   //   height: 130%;
   // }
@@ -217,6 +235,10 @@ header {
   margin-right: 20px;
   margin-left: 20px;
   padding-top: 20px;
+  button {
+    @extend .button;
+    @extend .button--pink;
+  }
   h4 {
     font-size: 18px;
     font-weight: normal;
@@ -235,14 +257,14 @@ header {
 //   }
 // }
 
-
-#my_meetups, #my_products {
-  h3 {
-    text-transform: lowercase;
-    text-decoration: underline;
-    font-weight: normal;  
-  }
-}
+// ****
+// #my_meetups, #my_products {
+//   h3 {
+//     text-transform: lowercase;
+//     text-decoration: underline;
+//     font-weight: normal;
+//   }
+// }
 
 
 .attendees {
@@ -270,8 +292,14 @@ header {
 .comments {
   @extend .border;
   @extend .border--blue;
+  h5 {
+     margin-top: 25px;
+  }
+  p  {
+    font-size:  14px;
+  }
   button {
-    font-size: 8px;
+    font-size: 10px;
     padding: 2px 4px;
     @extend .button;
     @extend .button--blue;
@@ -341,10 +369,11 @@ header {
 .event {
   @extend .border;
   @extend .border--pink;
-  p {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
+
+  // p {
+  //   // font-size: 18px;
+  //   margin-bottom: 10px;
+  // }
   button {
     @extend .button;
     @extend .button--blue;
@@ -353,14 +382,19 @@ header {
     margin-bottom: 20px;
     max-width: 300px;
   }
-  h1 {
-    margin-bottom: 20px;
-  }
-  h2 {
-    margin-bottom: 10px;
-  }
+  // h1 {
+  //   margin-bottom: 20px;
+  // }
+  // h2 {
+  //   margin-bottom: 10px;
+  //   li {
+  //   list-style: none;
+  //   }
+  // }
 }
-//
+
+
+
 form {
   margin-left: 20px;
   label {
@@ -375,7 +409,7 @@ form {
   input, textarea {
     margin-bottom: 20px;
     width: 100%;
-    border: 1px solid #f56700;
+    border: 1px solid #BA157B;
     padding: 5px 10px;
     font-size: 16px;
     &:focus {
@@ -405,28 +439,22 @@ form {
 }
 
 .product {
-  margin: 30px auto 0;
+  // margin: 30px auto 0;
+  @extend .border;
+  @extend .border--pink;
   text-align: center;
-  h1 {
-    text-align: center;
-    text-transform: uppercase;
-  }
-  h3 {
-    text-align: center;
-    font-size: 16px;
-  }
+  // h1 {
+  //   text-align: center;
+  //   text-transform: uppercase;
+  // }
+  // h3 {
+  //   text-align: center;
+  //   font-size: 16px;
+  // }
   img {
     height: 250px;
     border: 2px solid black;
     border-radius: 2px;
-  }
-  a {
-    color: black;
-    text-transform: uppercase;
-    text-decoration: none;
-    &:hover {
-    color: black;
-    }
   }
   .button {
     text-align: center;
@@ -450,15 +478,11 @@ form {
   }
 }
 
-
-
 footer {
   background-color: #white;
   padding: 10px 0;
-  // padding-top: 100px;
   text-align: center;
-  color: white;
-  // position: fixed;
+  // color: white;
   bottom: 0;
   width: 100%;
 }

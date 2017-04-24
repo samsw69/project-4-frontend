@@ -11,10 +11,11 @@
       <h3>{{ usersShow.user.username }}</h3>
       <a href="{{ usersShow.user.email }}">email: {{ usersShow.user.email }}</a>
       <h4>{{ usersShow.user.about }}</h4>
-    </div>
+
       <button ui-sref="usersEdit({id: usersShow.user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Edit</button>
       <button ng-click="usersShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Delete</button>
     </div>
+  </div>
 
     <div id="my_meetups">
       <h2>My Meet-ups</h2>
