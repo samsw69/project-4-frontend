@@ -11,10 +11,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/',
     templateUrl: 'js/views/static/home.html'
   })
-  // .state('etsy', {
-  //   url: '/etsy',
-  //   templateUrl: 'js/views/partials/etsy.html'
-  // })
+  
   .state('usersIndex', {
     url: '/users',
     templateUrl: 'js/views/users/index.html',

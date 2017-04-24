@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<h1>Register to use the site</h1>
 
-<div class="row">
-  <!-- <div class="col-md-6"> -->
-    <form ng-submit="auth.register()">
+<h1>Register to use Artsy</h1>
+<div class="container">
+  <div class="register">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form ng-submit="auth.register()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" ng-model="auth.user.name">
+          </div>
 
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" ng-model="auth.user.name">
-        </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" ng-model="auth.user.username">
+          </div>
 
-        <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" ng-model="auth.user.username">
-        </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" ng-model="auth.user.email">
+          </div>
 
-        <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" ng-model="auth.user.email">
-        </div>
+          <div class="form-group">
+            <label for="about">About Me</label>
+            <input type="text" ng-model="auth.user.about">
+          </div>
 
-        <div class="form-group">
-        <label for="about">About Me</label>
-        <input type="text" ng-model="auth.user.about">
-        </div>
+          <div class="form-group">
+            <label for="base64">Profile Picture</label>
+            <input type="file" base64 name ="base64" ng-model="auth.user.base64">
+          </div>
 
-        <div class="form-group">
-        <label for="base64">Profile Picture</label>
-        <input type="file" base64 name ="base64" ng-model="auth.user.base64">
-        </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" ng-model="auth.user.password">
+          </div>
 
-        <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" ng-model="auth.user.password">
-        </div>
+          <div class="form-group">
+            <label>Password Confirmation</label>
+            <input type="password" ng-model="auth.user.password_confirmation">
+          </div>
 
-        <div class="form-group">
-        <label>Password Confirmation</label>
-        <input type="password" ng-model="auth.user.password_confirmation">
-        </div>
-
-        <button>Register</button>
-    </form>
-  <!-- </div> -->
+          <button>Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

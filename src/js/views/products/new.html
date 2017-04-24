@@ -1,36 +1,43 @@
-<div class="row">
-  <div class="col-md-6">
-    <form ng-submit="productsNew.create()">
+<!DOCTYPE html>
 
-      <div class="form-group">
-      <label for="base64">Image</label>
-      <input type="file" id="base64" base64 name="base64" ng-model="productsNew.product.base64">
+<h1>Upload a new product</h1>
+<div class="container">
+  <div class="product_new">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form ng-submit="productsNew.create()">
+
+          <div class="form-group">
+          <label for="base64">Image</label>
+          <input type="file" id="base64" base64 name="base64" ng-model="productsNew.product.base64">
+          </div>
+
+          <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" ng-model="productsNew.product.title">
+          </div>
+
+          <div class="form-group">
+            <label>Genre</label><br>
+            <select ng-model="productsNew.product.genre_id" class="select">
+              <option disabled selected value="">Please select...</option>
+              <option ng-repeat="genre in productsNew.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" ng-model="productsNew.product.description">
+          </div>
+
+          <div class="form-group">
+          <label for="price">Price</label>
+          <input type="text" id="price" name="price" ng-model="productsNew.product.price">
+          </div>
+
+          <button>Create</button>
+        </form>
       </div>
-
-      <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" id="title" name="title" ng-model="productsNew.product.title">
-      </div>
-
-      <div class="form-group">
-        <label>Genre</label><br>
-        <select ng-model="productsNew.product.genre_id" class="select">
-          <option disabled selected value="">Please select...</option>
-          <option ng-repeat="genre in productsNew.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" id="description" name="description" ng-model="productsNew.product.description">
-      </div>
-
-      <div class="form-group">
-      <label for="price">Price</label>
-      <input type="text" id="price" name="price" ng-model="productsNew.product.price">
-      </div>
-
-      <button class="btn btn-primary">Create</button>
-    </form>
+    </div>
   </div>
 </div>

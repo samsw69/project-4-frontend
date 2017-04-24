@@ -1,46 +1,43 @@
+<!DOCTYPE html>
+
 <h1>Edit Product</h1>
-<div class="row">
-  <div class="col-md-6">
-    <form ng-submit="productsEdit.update()">
+<div class="container">
+  <div class="product_edit">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form ng-submit="productsEdit.update()">
 
-      <div class="form-group">
-        <label for="base64">Image</label>
-        <input type="file" base64 name="base64" id="base64"
-        ng-model="productsEdit.product.base64">
+          <div class="form-group">
+            <label for="base64">Image</label>
+            <input type="file" base64 name="base64" id="base64"
+            ng-model="productsEdit.product.base64">
+          </div>
+
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" ng-model="productsEdit.product.title">
+          </div>
+
+          <div class="form-group">
+            <label>Genre</label><br>
+            <label ng-repeat="genre in productsEdit.genres">
+              <input type="checkbox" name="genres" checklist-model="productsEdit.product.genres" checklist-value="genre.id">{{ genre.name }}
+            </label>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" ng-model="productsEdit.product.description">
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="integer" id="price" name="price" ng-model="productsEdit.product.price">
+          </div>
+
+          <button class="btn btn-primary">Update</button>
+        </form>
       </div>
-
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" ng-model="productsEdit.product.title">
-      </div>
-
-      <!-- <div class="form-group">
-        <label>Genre</label><br>
-        <select ng-model="productsEdit.product.genre_ids" class="select">
-          <option disabled selected value="">Please select...</option>
-          <option ng-repeat="genre in productsEdit.genres" ng-value="{{ genre.id }}">{{ genre.name }}</option>
-        </select>
-      </div> -->
-
-      <div class="form-group">
-        <label>Genre</label><br>
-        <label ng-repeat="genre in productsEdit.genres">
-          <input type="checkbox" name="genres" checklist-model="productsEdit.product.genres" checklist-value="genre.id">{{ genre.name }}
-        </label>
-        </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description" ng-model="productsEdit.product.description">
-      </div>
-
-      <div class="form-group">
-        <label for="price">Price</label>
-        <input type="integer" id="price" name="price" ng-model="productsEdit.product.price">
-      </div>
-
-
-      <button class="btn btn-primary">Update</button>
-    </form>
+    </div>
   </div>
 </div>

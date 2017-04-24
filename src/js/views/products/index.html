@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<div class="product_index">
   <h1>Artwork</h1>
   <h2>Browse homemade arts and crafts</h2>
   <p>Search art-styles or keywords to find something you love, then contact the artist to find our more or make a purchase.</p>
@@ -8,6 +9,7 @@
   <div class="sell_button">
     <br><button ui-sref="productsNew">Sell artwork...</button><br>
   </div>
+</div>
 
   <div id="carousel">
     <div uib-carousel active="productsIndex.active" interval="productsIndex.myInterval" no-wrap="productsIndex.noWrapSlides">
@@ -16,17 +18,13 @@
       </div>
     </div>
   </div>
-  <!-- <div class="container"> -->
-    <div class="products">
-      <ul class="row">
-        <li ng-repeat="product in productsIndex.filtered" class="col-md-3">
-          <img ng-src="{{ product.image_src }}" alt="product image">
-          <h3>{{ product.title }}</h3>
-          <!-- FIX THIS -->
-          <!-- <h2>{{ products.id.genres.name }}</h2> -->
-          <!-- ************ -->
-          <button ui-sref="productsShow({id: product.id})">View</button>
-        </li>
-      </ul>
-    </div>
-  <!-- </div> -->
+
+  <div class="products">
+    <ul class="row">
+      <li ng-repeat="product in productsIndex.filtered" class="col-md-3">
+        <img ng-src="{{ product.image_src }}" alt="product image">
+        <h3>{{ product.title }}</h3>
+        <button ui-sref="productsShow({id: product.id})">View</button>
+      </li>
+    </ul>
+  </div>

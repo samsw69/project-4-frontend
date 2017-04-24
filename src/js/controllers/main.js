@@ -19,11 +19,10 @@ function MainCtrl($rootScope, $state, $auth) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
-    
+
     if($auth.getPayload()) vm.currentUser = $auth.getPayload();
   });
 
-//added users routes to protected
   const protectedStates = ['eventsNew', 'eventsEdit', 'productsNew', 'productsEdit', 'usersShow', 'usersEdit'];
 
   $rootScope.$on('$stateChangeStart', (e, toState) => {

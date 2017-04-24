@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<h1>Meet Artists and Buyers</h1>
-<h2>Find like minded artists in your area...</h2>
-<p>See what artistic talent is in your local community and arrange meet-ups to create something new or learn a new skill.</p>
+<div class="users_info">
+  <h1>Meet Artists and Buyers</h1>
+  <h2>Find like minded artists in your area...</h2>
+  <p>See what artistic talent is in your local community and arrange meet-ups to create something new or learn a new skill.</p>
+</div>
 
 <input type="text" class="search" ng-model="usersIndex.q" placeholder="Find an artist...">
 
@@ -9,7 +11,6 @@
   <ul class="row">
     <li ng-repeat="user in usersIndex.filtered" class="col-md-3">
       <br>
-      <!-- <div class="user"> -->
       <img ng-src="{{ user.image_src }}" alt="user image">
       <h3>{{ user.name }}</h3>
       <p>{{ user.about }}</p>

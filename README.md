@@ -9,17 +9,17 @@ The site is aimed at the local arts & crafts community, bringing together artist
 The app has 3 key aims:
 
 1. provide a market place for home made art, bringing buyers and sellers together
-2. providing a forum for users to arrange and host meet-ups 
+2. provide a forum for users to arrange and host meet-ups 
 3. allow users to connect with eachother, to teach or be taught new skills 
 
-  [Link to App](https://bet-bucket.herokuapp.com/) ENTER NEW LINK
-  
+  [View the Artsy App here](https://gentle-reaches-22555.herokuapp.com/) 
+    
 ![](./src/images/artsy_home_page.png)
 
 
 #### Home Screen
 
-The landing page is simple, showing a route to login and a brief description of the app. The Angular Parallax class is used to generate user interest - scrolling through art related backgrounds and gifs, while the narrative explains what the site's objective is.
+The landing page is simple, showing a route to login and a brief description of the app. The 'Angular Parallax class' is used to hold the user's interest - scrolling through art related backgrounds and gifs, while the narrative explains what the site's objective is.
 
 Once a user is authenticated they have access to the full site, and can
 
@@ -27,7 +27,6 @@ Once a user is authenticated they have access to the full site, and can
 2. Buy Art
 3. View Events
 
-![](./src/images/LoginPage2.png) 
 
 Users can register directly or login with GitHub.  In either case, the user will be re-directed to the profile-update page upon first access, using their chosen login method.  This ensures complete user profiles so that all users can maximise their enjoyment of the site.
 
@@ -38,10 +37,10 @@ This is the index page for all site-users.
 ![](./src/images/artsy_user_index.png)
 
 Users can search for other users, based on any criteria. This is enabled by the built in Angular filterFilter function.
-CLicking on view, takes you through to the user show page.
+Clicking on view, takes you through to the user show page.
 
 #### View Artist / Buyer
-A user may edit or delete their profile, if they are authenticated to be the owner of the user profile.
+A user may edit or delete their profile, if they are authenticated as the owner of the user profile.
 
 ![](./src/images/artsy_user_show.png)
 
@@ -71,7 +70,7 @@ New events can also be added to the site.
 Click on the view button for further information on the event.
 This provides much greater detail.
 
-Here, users can accept or decline to indicate attendance.  This toggles, as users change their minds!  If the user also owns (created) this event, they can also choose to delete the event.
+Here, users can indicate whether they will be attending.  This toggles, as users change their minds!  If the user also owns (created) this event, they can also choose to delete the event.
 
 ![](./src/images/artsy_show_event1.png)
  
@@ -102,8 +101,9 @@ Secure routes ensure that only registered users can access the site.
 
 The following tools are used to build the site.
 
+* Ruby in Rails (back-end)
+* Angular (front-end)
 * Javascript
-* AngularJS
 * Bootstrap
 * SCSS
 * PostgreSQL 
@@ -116,19 +116,19 @@ Dependencies:
 * jwt
 
 
-In addition, the following planning and management tools were used:
+The following planning and management tools were used:
 
 **Trello for project management**
 
-Trello allowed for detailed planning and allocation of tasks. Regular updates were made to progress activity and ensure that all outstanding were completed in a timely manner. 
+Trello allowed for detailed planning and allocation of tasks. Regular updates were made to progress activity and ensure that all outstanding tasks were completed in a timely manner. 
 
-Trello was a key component of the project management capability.
+Below is a snapshot example of work in progress.
 
 ![](./src/images/Trello_snapshot.png)
 
 **Wireframing**
 
-Wireframing was carried out manually this time. The site was quite simple - with an index, create, show, update and delete page which was shared by three main categories of User, Event and Product.
+Wireframing was carried out manually, with hand drawn sketches. The site was quite simple - with index, create, show, update and delete template pages, shared by the three main categories of User, Event and Product.
 
 
 #### Problems & Challenges
@@ -140,14 +140,14 @@ The greatest challenges were:
 
 Future upgrades:
 
-1. online payments using Stripe
-2. links to the Meet-up.com API to expand access to further meet-ups
-3. email system to notify users when transactions are made, in-app.
-4. image-optimisation to right size images upon upload and to keep the site layout consistent.
+1. add online payments using Stripe
+2. provide links to the Meet-up.com API to offer access to further meet-ups
+3. email capabilty to notify users when transactions are made, in-app.
+4. image-optimisation to right size images upon upload, to keep the site layout consistent.
 
 
 #### Wins
 
 1. seamless integration between Rails and Angular
-2. using the Etsy APi
-3. more consistent styling and design approah
+2. integrating the Etsy API
+3. consistent styling and design approah

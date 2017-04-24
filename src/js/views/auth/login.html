@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <h1>Login to Artsy</h1>
-
-<div class="row">
+<div class="container">
   <div class="login">
-  <div class="col-md-6">
-    <form ng-submit="auth.login()">
-      <div>
-        <label>Email</label>
-        <input type="text" ng-model="auth.credentials.email">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form ng-submit="auth.login()">
+          <div>
+            <label>Email</label>
+            <input type="text" ng-model="auth.credentials.email">
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" ng-model="auth.credentials.password">
+          </div>
+          <button>login</button>
+        </form>
+        <br>
+        <button ng-click="auth.authenticate('github')">Github Login</button>
       </div>
-
-      <div>
-        <label>Password</label>
-        <input type="password" ng-model="auth.credentials.password">
-      </div>
-
-      <button>login</button>
-
-    </form>
+    </div>
   </div>
-</div>
-
-<button ng-click="auth.authenticate('github')">Login with Github</button>
 </div>

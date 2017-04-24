@@ -1,35 +1,40 @@
+<!DOCTYPE html>
+
 <h1>Edit User Profile</h1>
-<div class="row">
-  <div class="col-md-6">
-    <form ng-submit="usersEdit.update()">
+<div class="container">
+  <div class="edit_user">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form ng-submit="usersEdit.update()">
+          <div class="form-group">
+            <label for="base64">profile picture</label>
+            <input type="file" base64 name="base64" id="base64"
+            ng-model="usersEdit.user.base64">
+          </div>
 
-      <div class="form-group">
-        <label for="base64">profile picture</label>
-        <input type="file" base64 name="base64" id="base64"
-        ng-model="usersEdit.user.base64">
+          <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" id="name" name="name" ng-model="usersEdit.user.name">
+          </div>
+
+          <div class="form-group">
+            <label for="username">username</label>
+            <input type="text" id="username" name="username" ng-model="usersEdit.user.username">
+          </div>
+
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="email" id="email" name="email" ng-model="usersEdit.user.email">
+          </div>
+
+          <div class="form-group">
+            <label for="about">About me</label>
+            <input type="text" id="about" name="about" ng-model="usersEdit.user.about">
+          </div>
+
+          <button>Update</button>
+        </form>
       </div>
-
-      <div class="form-group">
-        <label for="name">name</label>
-        <input type="text" id="name" name="name" ng-model="usersEdit.user.name">
-      </div>
-
-      <div class="form-group">
-        <label for="username">username</label>
-        <input type="text" id="username" name="username" ng-model="usersEdit.user.username">
-      </div>
-
-      <div class="form-group">
-        <label for="email">email</label>
-        <input type="email" id="email" name="email" ng-model="usersEdit.user.email">
-      </div>
-
-      <div class="form-group">
-        <label for="about">About me</label>
-        <input type="text" id="about" name="about" ng-model="usersEdit.user.about">
-      </div>
-
-      <button class="btn btn-primary">Update</button>
-    </form>
+    </div>
   </div>
 </div>

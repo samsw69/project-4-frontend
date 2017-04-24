@@ -55,10 +55,6 @@ strong {
   font-weight: 500;
 }
 
-// h1, h2, h3, h4, h5, h6, p {
-//   margin-bottom: 5px;
-// }
-
 h1, h2, h5 {
   text-transform: uppercase;
   font-weight: 500;
@@ -91,8 +87,8 @@ h3 {
   font-weight: normal;
   text-transform: lowercase;
   color: $brand-secondary;
-  // text-align: center;
 }
+
 h4 {
   font-size: 18px;
   font-weight:400;
@@ -159,9 +155,6 @@ a {
  .content1 {
    height: 50%;
  }
-// ul {
-//   list-style: none;
-// }
 
 header {
   position: absolute;
@@ -170,7 +163,6 @@ header {
   right: 0;
   margin-bottom: 10px;
   nav {
-    // @extend.container;
     background-color: $white;
     height: 60px;
     ul {
@@ -213,20 +205,31 @@ header {
 }
 
 .login {
-  margin: 20px;
   margin-bottom: 30px;
+  @extend .border;
+  @extend .border--blue;
   button {
-    font-size: 14px;
-    padding: 2px 4px;
     @extend .button;
     @extend .button--blue;
-    margin-left: 10px;
-    position: relative;
-    top: -2px;
+  }
+}
+
+.register {
+  margin: 20px;
+  margin-bottom: 30px;
+  @extend .border;
+  @extend .border--blue;
+  line-height: 14px;
+  button {
+    @extend .button;
+    @extend .button--blue;
   }
 }
 
 .users {
+  margin: 20px;
+  @extend .border;
+  @extend .border--blue;
   ul {
     list-style: none;
   }
@@ -240,6 +243,43 @@ header {
   img {
     max-width: 300px;
   }
+}
+
+.users_info {
+  margin: 30px;
+}
+
+.edit_user {
+  @extend .border;
+  @extend .border--blue;
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+}
+
+.product_new {
+  line-height: 14px;
+  @extend .border;
+  @extend .border--blue;
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+}
+
+.product_edit {
+  line-height: 14px;
+  @extend .border;
+  @extend .border--blue;
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+}
+
+.product_index {
+  margin-left: 20px;
 }
 
 .products {
@@ -259,6 +299,24 @@ header {
   }
 }
 
+.event_new {
+  line-height: 14px;
+  @extend .border;
+  @extend .border--blue;
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+}
+.event_edit {
+  line-height: 14px;
+  @extend .border;
+  @extend .border--blue;
+  button {
+    @extend .button;
+    @extend .button--blue;
+  }
+}
 
 #carousel {
   img {
@@ -375,7 +433,6 @@ header {
   }
 }
 
-
 .event {
   @extend .border;
   @extend .border--blue;
@@ -385,12 +442,11 @@ header {
     @extend .button--blue;
   }
   img {
+    min-height: 300px;
     margin-bottom: 20px;
     height: 210px;
   }
 }
-
-
 
 form {
   margin-left: 20px;
@@ -434,7 +490,6 @@ form {
     ul {
     list-style: none;
     }
-  // }
 }
 
 .list-reset {
@@ -454,8 +509,6 @@ form {
 .product_image {
   height: 500px;
   margin: 0 auto;
-  // @extend .border;
-  // @extend .border--pink;
   text-align: center;
 
   img {
@@ -479,23 +532,12 @@ form {
   }
   margin-right: 100px;
   ul {
-    // display: block;
     list-style: none;
-    // position: relative;
   }
   li {
     list-style: none;
     display: inline-block;
     margin-left: -40px;
-
-    // margin: 0 15px;
-    // margin-left: 0;
-    // img {
-    //   height: 150px;
-    //   border: 2px solid black;
-    //   border-radius: 2px;
-    // }
-
   }
 }
 
@@ -518,7 +560,6 @@ footer {
   background-color: #white;
   padding: 10px 0;
   text-align: center;
-  // color: white;
   bottom: 0;
   width: 100%;
 }
