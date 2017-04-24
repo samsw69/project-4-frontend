@@ -1,64 +1,153 @@
-### Using this Angular Gulp Setup
+# Project 4: Artsy App
 
-To get setup with the starter-code, you first need to run:
+### GA WDI London - Project 4 - Final Project
 
-```sh
-$ bower install && gulp install
-```
+#### An application for the art & crafts community.
 
-## How is gulp setup?
+The site is aimed at the local arts & crafts community, bringing together artists, buyers and keen amateurs who may also want to up-skill or learn a new craft.
 
-Rather than trying to manage one giant `gulpfile.js` that is file responsible for creating multiple tasks, each task has been broken out into its own file and placed in a directory `tasks`. Any files in that directory get automatically required in the gulpfile using the `require-dir` npm package.
+The app has 3 key aims:
 
-To add a new task, simply add a new task file that directory.
+1. provide a market place for home made art, bringing buyers and sellers together
+2. providing a forum for users to arrange and host meet-ups 
+3. allow users to connect with eachother, to teach or be taught new skills 
 
-/tasks/default.js specifies the default set of tasks to run
-when you run `gulp`.
+  [Link to App](https://bet-bucket.herokuapp.com/) ENTER NEW LINK
+  
+![](./src/images/artsy_home_page.png)
 
-Configuration options are stored in the `package.json` file.
 
-When deploying, ensure that a `postinstall` script has been added to
-your package.json, e.g.
+#### Home Screen
 
-```json
-"postinstall": "bower install && gulp deploy"
-```
+The landing page is simple, showing a route to login and a brief description of the app. The Angular Parallax class is used to generate user interest - scrolling through art related backgrounds and gifs, while the narrative explains what the site's objective is.
 
-This setup expects that there is a bower.json file with at least ONE package
-installed. This will created a bower_components directory after
-the postinstall script has run.
+Once a user is authenticated they have access to the full site, and can
 
-When deploying, this setup expects that the NODE_ENV is set to `production`.
-Also that the NPM_CONFIG_PRODUCTION is set to `false`. Then you can also set the API_URL to be the correct URL for your deployed app. This will automatically replace `http://localhost:4000` to be the correct url.
+1. Meet Artists
+2. Buy Art
+3. View Events
 
-You can do this by running:
+![](./src/images/LoginPage2.png) 
 
-```bash
-$ heroku config:set NODE_ENV=production
-$ heroku config:set NPM_CONFIG_PRODUCTION=false
+Users can register directly or login with GitHub.  In either case, the user will be re-directed to the profile-update page upon first access, using their chosen login method.  This ensures complete user profiles so that all users can maximise their enjoyment of the site.
 
-# An example url
-$ heroku config:set API_URL=https://project-on-heroku.herokuapp.com/
-```
+#### 'Meet Artists' page
 
-### Bower overrides
+This is the index page for all site-users.
 
-Sometimes, you might want to `override` the `main` file(s) for a specific Bower component. You can do this directly inside the `bower.json` file like this:
+![](./src/images/artsy_user_index.png)
 
-```json
-"overrides": {
-  "bootstrap": {
-    "main": [
-      "dist/css/bootstrap.css",
-      "dist/js/bootstrap.js",
-      "dist/fonts/*"
-    ]
-  },
-  "font-awesome": {
-    "main": [
-      "css/font-awesome.css",
-      "fonts/*"
-    ]
-  }
-},
-```
+Users can search for other users, based on any criteria. This is enabled by the built in Angular filterFilter function.
+CLicking on view, takes you through to the user show page.
+
+#### View Artist / Buyer
+A user may edit or delete their profile, if they are authenticated to be the owner of the user profile.
+
+![](./src/images/artsy_user_show.png)
+
+Here, you will find a short 'about' section and contact details.  In addition, any products or meet-ups belonging to the user, will be displayed, with click-through links.
+
+
+#### 'Buy Art' page
+
+This is an index page displaying all available products for sale. 
+A carousel displays all product images at the top of the page. 
+A further filter 'search' facility is provided to narrow down the selection on display.
+
+Clicking 'view' takes the user through to the Product Show page.
+
+#### View Product
+![](./src/images/artsy_product_show.png)
+
+A larger image, a product description, genre and price are displayed. A user can contact the seller to purchase the product or ask questions.
+
+#### View Events
+
+All events can be viewed and searched via the Index page.
+New events can also be added to the site.
+
+![](./src/images/artsy_events_index.png)
+
+Click on the view button for further information on the event.
+This provides much greater detail.
+
+Here, users can accept or decline to indicate attendance.  This toggles, as users change their minds!  If the user also owns (created) this event, they can also choose to delete the event.
+
+![](./src/images/artsy_show_event1.png)
+ 
+A list of attendees remains updated on this page.
+Users can also add (and delete) comments.
+ 
+Further down this page there is a link to the Etsy API.  This functionality allows users to search for art supplies they may require for the event meet-up.
+
+![](./src/images/artsy_events_etsy.png)
+
+The API initially uses the 'genre' to populate 12 related images.  Users can click on the image and go directly to the Etsy site to complete their purchase.
+
+Users can also enter their own search criteria for a more specific result.
+
+
+#### Approach / How It Works
+
+This is a full stack application which utilises RESTful routing and authentication. Ruby on Rails provides the server-side functionality and Angular serves the client-side.
+
+Secure routes ensure that only registered users can access the site.
+
+##### APIs used
+
+1. Etsy API
+2. Internal API - between Rails and Angular.
+
+#### The Build
+
+The following tools are used to build the site.
+
+* Javascript
+* AngularJS
+* Bootstrap
+* SCSS
+* PostgreSQL 
+
+Dependencies:
+
+* sattelizer
+* bcrypt
+* express
+* jwt
+
+
+In addition, the following planning and management tools were used:
+
+**Trello for project management**
+
+Trello allowed for detailed planning and allocation of tasks. Regular updates were made to progress activity and ensure that all outstanding were completed in a timely manner. 
+
+Trello was a key component of the project management capability.
+
+![](./src/images/Trello_snapshot.png)
+
+**Wireframing**
+
+Wireframing was carried out manually this time. The site was quite simple - with an index, create, show, update and delete page which was shared by three main categories of User, Event and Product.
+
+
+#### Problems & Challenges
+
+The greatest challenges were:
+
+1. Accessing the API to ascertain the correct category id for supplies.  The APi was simple to use but lacked detail on the fields.
+2. This is a fairy simple site, and good styling was key to the successful execution of this project.  The aim was to streamline the CSS code to reduce repetitive code.
+
+Future upgrades:
+
+1. online payments using Stripe
+2. links to the Meet-up.com API to expand access to further meet-ups
+3. email system to notify users when transactions are made, in-app.
+4. image-optimisation to right size images upon upload and to keep the site layout consistent.
+
+
+#### Wins
+
+1. seamless integration between Rails and Angular
+2. using the Etsy APi
+3. more consistent styling and design approah
