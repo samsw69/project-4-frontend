@@ -1,8 +1,8 @@
 
 @import 'variables';
 @import 'extends';
-// @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500');
 @import url('https://fonts.googleapis.com/css?family=Muli:400,500');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
 * {
 color: $black;
@@ -105,7 +105,56 @@ a {
   text-decoration-line: none, lowercase;
 
 }
+ .parallax {
+  height: 700px;
+  width: 100%;
+  background-image: url("/images/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+ }
 
+ .content {
+   text-align: center;
+   height: 50%;
+   font-family: 'PT Sans', sans-serif;
+   p {
+     color: #777;
+   }
+   div {
+    background-color: $white ;
+    h2{
+      text-align: center;
+      color: $brand-secondary;
+    }
+  }
+ }
+
+ .parallax2 {
+  height: 700px;
+  width: 100%;
+  background-image: url("http://www.designbolts.com/wp-content/uploads/2012/09/Inspiring-Wisdom-Quotes-From-365-Days-Of-Tumblr-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+ }
+
+ .parallax3 {
+  height: 700px;
+  width: 100%;
+  background-image: url("https://i.giphy.com/gCdkA4yD3vlsc.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+ }
+
+
+ .content1 {
+   height: 50%;
+ }
 // ul {
 //   list-style: none;
 // }
@@ -166,12 +215,12 @@ header {
 //   margin-bottom: 20px;
 // }
 //
-.hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/hero.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 90vh;
-}
+// .hero {
+//   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/hero.jpg');
+//   background-size: cover;
+//   background-position: center;
+//   height: 90vh;
+// }
 
 .login {
   margin: 20px;
