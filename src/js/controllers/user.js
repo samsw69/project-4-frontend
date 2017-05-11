@@ -30,6 +30,18 @@ function UsersShowCtrl(User, $stateParams) {
     });
 }
 
+//new entry
+function usersDelete() {
+  vm.user
+    .$remove()
+    .then(() => $state.go('login'));
+}
+
+vm.delete = usersDelete;
+}
+// ********
+
+
 UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];
 function UsersEditCtrl(User, $stateParams, $state) {
   const vm = this;
