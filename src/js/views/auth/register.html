@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-
 <h1>Register to use Artsy</h1>
 <div class="container">
   <div class="register">
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
         <form ng-submit="auth.register()">
+
+          {{ auth.user }}
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" ng-model="auth.user.name">
@@ -28,7 +28,7 @@
 
           <div class="form-group">
             <label for="base64">Profile Picture</label>
-            <input type="file" base64 name ="base64" ng-model="auth.user.base64">
+            <input type="file" id="base64" base64 name="base64" ng-model="auth.user.base64">
           </div>
 
           <div class="form-group">
